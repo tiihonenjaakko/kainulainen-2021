@@ -1,0 +1,103 @@
+{CartProducts(
+	before: '
+		<div class="MiniCartHeader">
+			<h3 class="MiniCartTitle">{%ShoppingCart}</h3>
+			<a href="/cart/" class="MiniCartEditLink Button-Small Button-White">{%Edit}</a>
+		</div>
+		<div class="MiniCartActions">
+			<div class="Buttons Buttons-Block">
+				<a class="Button Button-Primary Button-Big OrderProducts" href="/checkout/">{%OrderProducts}</a>
+			</div>
+		</div>
+		<div class="MiniCartProducts">',
+	after: '
+		</div>
+		{CartShippingCosts(
+			before: '<div class="MiniCartTotal">{%CheckoutShipping}: {CartShippingMethod}&nbsp;',
+			after: '</div>'
+		)}
+		{CartPaymentCosts(
+			before: '<div class="MiniCartTotal">{%PaymentMethod}: {CartPaymentMethod}&nbsp;',
+			after: '</div>'
+		)}
+		{CartDiscount(
+			before: '<div class="MiniCartTotal">{CartDiscountLabel}:&nbsp;',
+			after: '</div>'
+		)}
+		{CartTotal(
+			before: '<div class="MiniCartTotal">{%Total}:&nbsp;',
+			after: '</div>'
+		)}
+		{CartGiftCards(
+			before: '<div class="MiniCartTotal">',
+			helper: '{{
+				{%CartPaidByGiftCard}: {GiftCardBalanceReserved}<br />
+			}}',
+			after: '
+					<a href="#" data-drawer-toggle="gift-cards" class="GiftCardDetails">{%CartGiftCardDetaild}</a>
+				</div>
+				{CartOpenTotal(
+					before: '<div class="MiniCartTotal">{%CartOpenTotal}:&nbsp;',
+					after: '</div>'
+				)}'
+		)}',
+	or: '
+		<div class="DrawerSection">
+			<div class="Notification">
+				{%ShoppingCartIsEmpty}
+			</div>
+		</div>',
+	helper: '{{
+		<div class="Product MiniListProduct MiniCartProduct {ProductClass}">
+			<div class="MiniListCol MiniListColImage">
+				{ProductImage(
+					imagesize: 'mini',
+					link: 'false',
+					before: '
+						<a class="ProductImage" href="{ProductURL}" {ProductLinkData}>
+							<div class="AspectRatio">
+								<div class="ProductImageContainer">',
+					after: '
+								</div>
+							</div>
+						</a>'
+				)}
+				{CartProductDelete(
+					before: '<span class="ProductRemove">',
+					after: '</span>'
+				)}
+			</div>
+			<div class="MiniListCol MiniListColDetails">
+				{CartProductName(
+					before: '<a class="ProductName" href="{ProductURL}" {ProductLinkData}>',
+					after: '{CartProductVariation(before: '&#32;–&#32;')}</a>'
+				)}
+				<div class="ProductPrices">
+					{CartProductQuantity(
+						mode: 'preview',
+						before: '<span class="MiniCartProductQuantity" data-quantity="{CartProductQuantity(mode: 'preview')}">',
+						after: '&nbsp;&times;</span>'
+					)}
+					{CartProductComparePrice(
+						currencysymbol: 'true',
+						before: '
+							{CartProductPrice(
+								currencysymbol: 'true',
+								before: '<span class="ProductDiscountPrice">',
+								after: '</span>'
+							)}
+							<span class="ProductComparePrice">',
+						after: '</span>',
+						or: '
+							{CartProductPrice(
+								currencysymbol: 'true',
+								before: '<span class="ProductCurrentPrice">',
+								after: '</span>'
+							)}'
+					)}
+					<span class="MiniCartProductTotal">{CartProductTotal(before: '{%Total}&nbsp;')}</span>
+				</div>
+			</div>
+		</div>
+	}}'
+)}

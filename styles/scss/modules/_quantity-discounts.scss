@@ -1,0 +1,28 @@
+//------------------------------------------------------------------------------
+// Product Quantity Discounts
+//------------------------------------------------------------------------------
+
+.ProductQuantityDiscounts dt {
+	font-weight: normal;
+	margin: 0;
+	padding: .5rem 0;
+	position: absolute;
+}
+
+.ProductQuantityDiscounts dd {
+	border-top: 1px solid var(--border-color);
+	text-align: right;
+	padding: .5rem 0;
+	padding-left: 80px;
+}
+
+.ProductQuantityDiscounts :nth-child(-n+2) {
+	border: 0;
+	padding-top: 0;
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+	.ProductQuantityDiscounts dl {
+		max-width: none;
+	}
+}

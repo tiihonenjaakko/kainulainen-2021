@@ -1,0 +1,60 @@
+<div class="ListItem">
+	<div class="{ProductClass} ListProduct">
+		<a class="ProductImage" href="{ProductURL}" {ProductLinkData}>
+			<div class="AspectRatio">
+				<div class="ProductImageContainer">
+					<img src="{ProductImageUrl(imagesize: 'list')}" loading="lazy" alt="{ProductName}">
+				</div>
+			</div>
+		</a>
+		{ProductBrandName(
+			before: '<div class="ProductBrand"><a href="{ProductBrandLink}">',
+			after: '</a></div>'
+		)}
+		{ProductName(
+			before: '
+				<h3 class="H5 ProductName">
+					<a href="{ProductURL}" {ProductLinkData}>',
+			after: '
+					</a>
+				</h3>'
+		)}
+		<div class="Badge NewBadge">Uutuus</div>
+		{ProductAvailability(
+			html: 'false',
+			before: '<div class="Badge ListProductAvailabilityBadge">',
+			after: '</div>'
+		)}
+		{ProductDiscountPercent(
+			before: '<span class="Badge ProductDiscountPercent">ALE -',
+			after: '&#37;</span>'
+		)}
+		<div class="ProductPrices">
+			{ProductComparePrice(
+				currencysymbol: 'true',
+				before: '
+					{ProductPrice(
+						currencysymbol: 'true',
+						before: '<span class="ProductDiscountPrice">',
+						after: '</span>'
+					)}
+					<span class="ProductComparePrice">',
+				after: '</span>',
+				or: '
+					{ProductPrice(
+						currencysymbol: 'true',
+						before: '<span class="ProductCurrentPrice">',
+						after: '</span>'
+					)}'
+			)}
+			{ProductBuy(
+				before: '<div class="ProductBuyColumn">',
+				after: '</div>'
+			)}
+		</div>
+		{ProductCategoryLink(
+			before: '<span class="ListProductCategoryLink" data-prefix="Katso kaikki">',
+			after: '</span>'
+		)}
+	</div>
+</div>

@@ -1,0 +1,46 @@
+//------------------------------------------------------------------------------
+// Navigation Bar
+//------------------------------------------------------------------------------
+
+.NavigationBar {
+	--background-color: var(--color-navbar-bg);
+	--border-color: var(--color-navbar-border);
+	background-color: var(--background-color);
+	border-bottom: 1px solid var(--border-color);
+	font-size: var(--font-size-large);
+	position: relative;
+	z-index: 100;
+}
+
+.NavigationBar .LogoLink > img {
+	max-height: 46px;
+}
+
+.NavigationBar .Hide-Tablet .LogoLink > img {
+	max-height: 75px;
+}
+
+.NavigationBar .Hide-Tablet .LogoLink {
+	margin-right: 5.2rem;
+}
+
+.NavigationBarToggle {
+	display: inline-block;
+	font-size: 2.4rem;
+	padding: 1.5rem;
+}
+
+.NavigationBarToggle-Left {
+	margin-left: -1.5rem;
+}
+
+.NavigationBarToggle-Right {
+	margin-right: -1.5rem;
+}
+
+@media screen and (max-width: $breakpoint-mobile-wide) {
+	.NavigationBar {
+		padding-bottom: .5rem;
+		padding-top: .5rem;
+	}
+}

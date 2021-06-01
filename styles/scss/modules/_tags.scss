@@ -1,0 +1,34 @@
+//------------------------------------------------------------------------------
+// Tags List
+//------------------------------------------------------------------------------
+
+.TagsList {
+	list-style: none;
+}
+
+.TagsList li {
+	display: inline-block;
+	margin: 2px 3px;
+}
+
+.TagsList li:first-child {
+	margin-left: 0;
+}
+
+.TagsList li:last-child {
+	margin-right: 0;
+}
+
+//------------------------------------------------------------------------------
+// Tag
+//------------------------------------------------------------------------------
+
+.Tag {
+	background-color: #EFEFEF;
+	display: inline-block;
+	font-size: 1.4rem;
+	letter-spacing: 1.12px;
+	line-height: 1.8rem;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+}

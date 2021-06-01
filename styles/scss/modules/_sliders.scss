@@ -1,0 +1,159 @@
+//------------------------------------------------------------------------------
+// Product List Slider
+//------------------------------------------------------------------------------
+
+// .ListItem[style*="left"] {
+// 	height: 100%;
+// }
+
+[data-slider="grid-list"]:after {
+	content: 'flickity';
+	display: none;
+}
+
+.GridList[data-slider="grid-list"] {
+	/*margin-left: calc(var(--page-margin) * -1);
+	margin-right: calc(var(--page-margin) * -1);
+	padding-left: calc(var(--page-margin) - 1rem);
+	padding-right: calc(var(--page-margin) - 1rem);*/
+	// overflow: hidden;
+
+	.flickity-viewport {
+		//overflow: visible;
+	}
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+	[data-slider="grid-list"]:after {
+		content: '';
+		display: none;
+	}
+
+	.GridList[data-slider="grid-list"] {
+		@include hscrollable;
+		@include flex-wrap(nowrap !important);
+
+		.ListItem {
+			float: none;
+			white-space: normal;
+		}
+	}
+}
+
+//------------------------------------------------------------------------------
+// Flickity Buttons
+//------------------------------------------------------------------------------
+
+.flickity-button {
+	@include icon-before($fa-var-chevron-right);
+
+	&:before {
+		color: #fff;
+		font-size: 2rem;
+		margin: 5px 0 0 0;
+		text-align: center;
+		width: 100%;
+	}
+}
+
+.flickity-button > svg {
+	display: none;
+}
+
+.flickity-prev-next-button.previous {
+	@include icon-before($fa-var-chevron-left);
+	left: calc(var(--page-margin) - 17rem) !important;
+
+	&:before {
+	}
+}
+
+.flickity-prev-next-button.next {
+	right: calc(var(--page-margin) - 17rem) !important;
+}
+
+.flickity-prev-next-button {
+	border-radius: 3rem !important;
+	box-shadow: 0 1px 2px var(--black-10);
+	background: #000 !important;
+	height: 6rem;
+	top: 45%;
+	top: calc(50%);
+	width: 6rem;
+	z-index: 2;
+}
+
+.flickity-prev-next-button:after {
+	bottom: -2rem;
+	content: '';
+	display: block;
+	left: -2rem;
+	position: absolute;
+	right: -2rem;
+	top: -2rem;
+}
+
+.flickity-prev-next-button:hover {
+	//background: var(--color-base-2);
+}
+
+.flickity-prev-next-button .arrow {
+	fill: var(--color-text-dark);
+}
+
+.flickity-prev-next-button.no-svg {
+	color: var(--color-text-dark);
+}
+
+.flickity-prev-next-button:disabled {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.flickity-prev-next-button:disabled:before {
+	color: var(--black-10);
+}
+
+[data-slider="grid-list"],
+[data-slider="banner"] {
+	.flickity-prev-next-button.previous {
+		left: calc(var(--page-margin) - 1rem);
+	}
+
+	.flickity-prev-next-button.next {
+		right: calc(var(--page-margin) - 1rem);
+	}
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+	.flickity-prev-next-button  {
+		display: none;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Flickity Page Dots
+//------------------------------------------------------------------------------
+
+.flickity-page-dots {
+	left: 0;
+	margin: 0;
+	padding: 0;
+	right: 0;
+}
+
+.flickity-page-dots li:only-child {
+	display: none;
+}
+
+.flickity-page-dots .dot {
+	border-radius: 20px;
+	height: .5rem;
+	transition-duration: var(--transition-slow);
+	transform-origin: center;
+	width: 1rem;
+}
+
+.flickity-page-dots .dot.is-selected {
+	width: 2rem;
+}

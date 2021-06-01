@@ -1,0 +1,119 @@
+{Helper(file: 'helpers/header')}
+<div class="SiteContent">
+	<div class="Container">
+		<div class="ContentSection">
+			<div class="Flex Flex-Collapse">
+				<div class="FlexItem">
+					<h1 class="H2">
+						{SearchKeyword(
+							before: '{%SearchPageTitle}:&nbsp;',
+							after: '',
+							or: '{%SearchNoTerms}'
+						)}
+					</h1>
+					{Search}
+				</div>
+			</div>
+		</div>
+		<div class="ContentSection">
+			{Notifications(group: 'search')}
+			<div class="Flex Flex-Wrap Flex-Collapse">
+				{SearchFilters(
+					before: '
+						<div class="FlexItem">
+							<div class="ProductListFilters">',
+					after: '
+							</div>
+						</div>',
+					helper: '{{
+						{SearchFilterOptions(
+							before: '
+								<div class="FilterGroup">
+									<a class="FilterGroupName" href="#FilterList-{SearchFilterClass}" tabindex="0">{SearchFilterName}</a>
+									<div id="FilterList-{FilterClass}" class="FilterList" tabindex="-1">
+										<ul>',
+							after: '
+										</ul>
+									</div>
+								</div>'
+						)}
+					}}'
+				)}
+				{Helper(
+					file: 'helpers/pagination-form',
+					before: '
+						<div class="FlexSpacer"></div>
+						<div class="FlexItem">',
+					after: '</div>'
+				)}
+			</div>
+			<div class="Flex FilterTagsSection">
+				{SearchFilters(
+					before: '
+						<div class="FlexItem">
+							<ul class="FilterTags">',
+					after: '
+								<li class="ClearAllFilters"><a href="/search/?q={SearchKeyword}" class="RemoveFilter">{%ProductFiltersRemove}</a></li>
+							</ul>
+						</div>
+						<div class="FlexItem FlexSpacer"></div>',
+						helper: '{{
+							{SearchFilterOptions(
+								helper: '{{
+									{SearchFilterOptionRemoveUrl(
+										before: '
+											<li><a href="',
+										after: '" class="RemoveFilter">{SearchFilterOptionName}</a></li>'
+									)}
+								}}'
+							)}
+						}}'
+				)}
+				<div class="FlexItem PaginationStatusItem">{PaginationStatus}</div>
+			</div>
+			{SearchProducts(
+				pagination: 'true',
+				limit: '100',
+				before: '
+					<div class="Grid">
+						<div class="Col-12-12 Col-Tablet-12-12">
+							<div class="GridList GridList-Wide">',
+				after: '
+							</div>
+							{Helper(file: 'helpers/pagination')}
+						</div>
+					</div>',
+				helper: 'helpers/list-product'
+			)}
+		</div>
+		{SearchSuggestions(
+			before: '
+				<div class="ContentSection">
+					<h3 class="FullSearchSuggestionsTitle">{%SearchSuggestionsLabel}</h3>
+					<ul class="FullSearchSuggestions">',
+			after: '
+					</ul>
+				</div>',
+			helper: '{{
+				<li>
+					<a href="{SearchUrl}">{SearchKeyword}</a>
+				</li>
+			}}'
+		)}
+		{LastViewedProducts(
+			limit: '10',
+			type: 'normal',
+			before: '
+				<div class="ContentSection">
+					<h2 class="ContentTitle">{%PreviouslyBrowsedProducts}</h2>
+					<div class="List ProductList">
+						<div class="GridList GridList-Wide">',
+			after: '
+						</div>
+					</div>
+				</div>',
+			helper: 'helpers/list-product'
+		)}
+	</div>
+</div>
+{Helper(file: 'helpers/footer')}

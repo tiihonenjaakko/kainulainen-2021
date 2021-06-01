@@ -1,0 +1,32 @@
+<div class="ListItem">
+	<div class="{BundleClass} ListProduct">
+		<a class="ProductImage" href="{BundleURL}">
+			<div class="AspectRatio">
+				<div class="ProductImageContainer">
+					<img src="{BundleImageUrl(imagesize: 'list')}" loading="lazy" alt="{BundleName}">
+				</div>
+			</div>
+		</a>
+		{BundleName(
+			before: '
+				<h3 class="H5 ProductName">
+					<a href="{BundleURL}">',
+			after: '
+					</a>
+				</h3>'
+		)}
+		<div class="ProductPrices">
+			{BundleComparePrice(
+				currencysymbol: 'true',
+				before: '
+					{BundlePrice(
+						currencysymbol: 'true',
+						before: '<span class="ProductDiscountPrice">',
+						after: '</span>'
+					)}
+					<span class="ProductComparePrice">',
+				after: '</span>'
+			)}
+		</div>
+	</div>
+</div>

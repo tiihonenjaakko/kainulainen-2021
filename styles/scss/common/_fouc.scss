@@ -1,0 +1,33 @@
+//------------------------------------------------------------------------------
+// JavaScript Supported
+//------------------------------------------------------------------------------
+
+.JS .JS-Hide {
+	display: none !important;
+}
+
+.JS #CheckoutMarketingPermissions button {
+	display: none;
+}
+
+.JS-Loading [type='number'] {
+	visibility: hidden;
+}
+
+.JS-Loading .ProductList [data-slider] {
+	height: 240px;
+	overflow: hidden;
+}
+
+.JS-Loading #LiveSearchResults {
+	display: none;
+}
+
+//------------------------------------------------------------------------------
+// Banner Loading
+//------------------------------------------------------------------------------
+
+[data-slider]:not(.flickity-enabled) .Banner:not(:first-child),
+[data-slider]:not(.flickity-enabled) .FeatureItem:not(:first-child) {
+	display: none;
+}

@@ -1,0 +1,58 @@
+{Helper(file: 'helpers/header')}
+<div class="SiteContent">
+	<div class="Container">
+		<div class="Flex FlexValign-Start">
+			<div class="FlexItem FlexItem-Grow MainColumn">
+				{BrandImageUrl(
+					before: '
+						<div class="Banner Banner-Wide Margin-Bottom">
+							<div class="AspectRatio">
+								{BrandLink(
+									before: '<a class="BannerCoverLink" href="',
+									after: '"></a>'
+								)}
+								<div class="BannerBackgroundImage" style="background-image: url({BrandImageURL(imagesize: 'banner-body')})" data-src="',
+					after: '"></div>
+							</div>
+						</div>'
+				)}
+				<div class="ContentSection">
+					<div class="Flex Flex-Collpse">
+						<div class="FlexItem FlexItem-Grow">
+							<h1>{PageTitle}</h1>
+						</div>
+						{BrandLogo(
+							imagesize: 'mini',
+							before: '<div class="FlexItem">',
+							after: '</div>'
+						)}
+					</div>
+					{CategoryDescription}
+					<div class="Flex Flex-Wrap Flex-Collapse">
+						{Helper(
+							file: 'helpers/pagination-form',
+							before: '
+								<div class="FlexSpacer"></div>
+								<div class="FlexItem">',
+							after: '</div>'
+						)}
+					</div>
+					{BrandProducts(
+						limit: '40|80',
+						pagination: 'true',
+						type: 'normal',
+						before: '
+							<div class="List ProductList">
+								<div class="GridList">',
+						after: '
+								</div>
+							</div>
+							{Helper(file: 'helpers/pagination')}',
+						helper: 'helpers/list-product'
+					)}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{Helper(file: 'helpers/footer')}

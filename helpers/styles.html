@@ -1,0 +1,17 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+{MinifyCSS(
+	mode: 'production',
+	files: '
+		vendor/normalize-css/normalize.css|
+		vendor/magnific-popup/dist/magnific-popup.css|
+		vendor/flickity/flickity.css|
+		styles/theme.css'
+)}
+<link rel="stylesheet" href="/assets/defaults/vendor/magiczoomplus/magiczoomplus.css">
+<!--[if lte IE 9]>
+	<link rel="stylesheet" href="{ThemeURL}/styles/ie9.css">
+<![endif]-->
+<!--[if lte IE 8]>
+	<link rel="stylesheet" href="{ThemeURL}/styles/ie8.css">
+<![endif]-->

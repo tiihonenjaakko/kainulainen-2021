@@ -1,0 +1,63 @@
+//------------------------------------------------------------------------------
+// Theme Layout Visibility
+//------------------------------------------------------------------------------
+
+[data-layout-mode="large"] [data-layout-hide="large"] {
+	display: none !important;
+}
+
+[data-layout-mode="medium"] [data-layout-hide="medium"] {
+	display: none !important;
+}
+
+//------------------------------------------------------------------------------
+// Theme Large
+//------------------------------------------------------------------------------
+
+[data-layout-mode="large"] {
+	.BrandHeader #LiveSearch {
+		max-width: none;
+	}
+
+	.NavigationBar {
+		border: 0;
+	}
+
+	.SiteColumns .SiteColumn {
+		border: 0;
+	}
+
+	.SiteColumns .SiteMainColumn {
+		border: 1px solid var(--border-color);
+		border-radius: 8px 0 0 0;
+		border-width: 1px 0 0 1px;
+	}
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+	[data-layout-mode="large"] .SiteColumn {
+		display: none;
+	}
+}
+
+@media screen and (min-width: $breakpoint-tablet + 1) {
+	[data-layout-mode="large"] {
+		.SiteContent {
+			padding-top: 3rem;
+		}
+
+		.SiteColumns .SiteMainColumn {
+			--container-page-margin: 3rem;
+		}
+	}
+}
+
+//------------------------------------------------------------------------------
+// Theme Medium
+//------------------------------------------------------------------------------
+
+[data-layout-mode="medium"] .SiteColumns .SiteMainColumn {
+	.GridList {
+		// @extend .GridList-Wide;
+	}
+}

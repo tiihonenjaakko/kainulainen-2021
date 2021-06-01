@@ -1,0 +1,328 @@
+//------------------------------------------------------------------------------
+// Inputs
+//------------------------------------------------------------------------------
+
+input, select, textarea {
+	--background-color: var(--color-input-bg);
+	--border-color: var(--color-input-border);
+	background-color: var(--background-color);
+	border: 1px solid var(--border-color);
+	border-radius: var(--border-radius);
+	display: inline-block;
+	height: var(--input-height);
+	max-width: 100%;
+	padding: .5rem 1rem;
+	transition-duration: var(--transition-slow);
+	vertical-align: middle;
+}
+
+[type='checkbox'], [type='radio'] {
+	background-color: transparent;
+	border-radius: 0;
+	border-width: 0;
+	box-shadow: none;
+	display: inline-block !important;
+	height: auto;
+	margin: 0 5px 0 0;
+	max-width: none;
+	width: auto;
+}
+
+[type='checkbox'], [type='radio'] {
+	all: revert;
+	margin: 0 5px 0 0;
+	vertical-align: middle;
+}
+
+textarea {
+	height: auto;
+	resize: none;
+}
+
+select {
+	@include appearance(none);
+	background: var(--color-input-bg) var(--icon-select-dark) top 50% right 14px no-repeat;
+	background-size: 12px 12px;
+	box-shadow: none;
+	cursor: pointer;
+	padding-right: 35px;
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+@media screen and (max-width: $breakpoint-mobile-wide) {
+	input, select, textarea {
+		display: block;
+		margin: 0;
+		width: 100%;
+	}
+}
+
+input:-webkit-autofill {
+	animation-name: onAutoFill;
+}
+
+//------------------------------------------------------------------------------
+// Labels
+//------------------------------------------------------------------------------
+
+label, .label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+label {
+	cursor: pointer;
+}
+
+.GroupLabel {
+	@extend %default-margin;
+	border-bottom: 1px solid var(--border-color);
+	display: block;
+	font-size: var(--font-size-large);
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+//------------------------------------------------------------------------------
+// Form Errors & Notifications
+//------------------------------------------------------------------------------
+
+.FormError {
+	position: relative;
+}
+
+.FormErrorMessage {
+	@include truncate;
+	background-color: var(--color-body-bg);
+	color: var(--color-error);
+	display: block;
+	margin: 0;
+	opacity: 1;
+	position: absolute;
+	width: 100%;
+}
+
+.GroupErrorMessage,
+.FormNotification {
+	@extend .Notification;
+	@extend .Notification.Error;
+}
+
+:root .GroupErrorMessage,
+:root .FormNotification {
+	border: 0;
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+	.FormErrorMessage {
+		font-size: var(--font-size-small);
+		opacity: 1;
+		position: static;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Form Items
+//------------------------------------------------------------------------------
+
+.FormItem {
+	margin: 0 0 2rem 0;
+}
+
+.FormItem:last-child {
+	margin-bottom: 0;
+}
+
+.FormItem .InlineCheck {
+	display: inline-block;
+	font-weight: normal;
+	margin: 0 0 0 10px;
+}
+
+.FormItem .Checks:last-child {
+	margin-bottom: 0;
+}
+
+.FormSubmit {
+	margin-top: 2rem;
+}
+
+.GroupItem {
+	margin-bottom: 0;
+}
+
+.GroupItem > div {
+	display: inline-block;
+	margin: 0 1.5rem 2rem 0;
+	vertical-align: bottom;
+}
+
+.GroupItem.required > label:after {
+	content: ' *';
+}
+
+@media screen and (max-width: $breakpoint-mobile-wide) {
+	.FormItem .InlineCheck {
+		display: block;
+		margin: 1rem 0 0;
+	}
+
+	.GroupItem > div {
+		display: block;
+		margin-right: 0;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Checks
+//------------------------------------------------------------------------------
+
+.Checks {
+	margin-bottom: 2rem;
+}
+
+.Checks label {
+	font-weight: normal;
+}
+
+.Checks > label {
+	margin-top: 10px;
+}
+
+.Checks > label:first-child {
+	margin-top: 0;
+}
+
+//------------------------------------------------------------------------------
+// Form Help
+//------------------------------------------------------------------------------
+
+.FormHelp {
+	font-size: var(--font-size-small);
+	margin: .5rem 0 0;
+}
+
+.FormAltAction {
+	display: inline-block;
+	margin-left: .5rem;
+}
+
+//------------------------------------------------------------------------------
+// Input Group
+//------------------------------------------------------------------------------
+
+.InputGroup {
+	@include flexbox;
+	@include flex-wrap;
+	@include align-items(center);
+	width: 100%;
+}
+
+.InputGroup > label {
+	@include flex(0 0 100%);
+}
+
+.InputGroup > input {
+	@include flex(1);
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+	margin-right: -1px;
+
+	&:focus {
+		position: relative;
+	}
+}
+
+.InputGroup > button {
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
+
+//------------------------------------------------------------------------------
+// Compact Form
+//------------------------------------------------------------------------------
+
+.CompactForm .FormItem {
+	@extend .InputGroup;
+	button {
+		color: var(--color-light);
+	}
+}
+
+@media screen and (max-width: $breakpoint-mobile-wide) {
+	.CompactForm {
+		display: block;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Pagination Form
+//------------------------------------------------------------------------------
+
+.PaginationForm label {
+	display: inline-block;
+	margin-right: 1.5rem;
+}
+
+//------------------------------------------------------------------------------
+// Campaign Code Form
+//------------------------------------------------------------------------------
+
+.CampaignCodeForm form {
+	@extend .CompactForm;
+	border-top: 1px solid var(--border-color);
+	margin-bottom: 2rem;
+	padding-top: 2rem;
+}
+
+.CampaignCodeForm input[type='hidden'] + button {
+	border-radius: var(--border-radius);
+}
+
+.CampaignCodeForm .label {
+	@include flex(1);
+	margin:  0;
+	padding-right: 1.5rem;
+	text-align: left;
+}
+
+.CampaignCodeForm .label strong {
+	color: var(--color-accent-1);
+}
+
+.CampaignCodeForm-InModal form {
+	background: none;
+	border: 0;
+	padding: 0;
+}
+
+//------------------------------------------------------------------------------
+// Availability Notification Form
+//------------------------------------------------------------------------------
+
+.AvailabilityNotificationForm select,
+.AvailabilityNotificationForm input[type="text"] {
+	width: 100%;
+}
+
+//------------------------------------------------------------------------------
+// Contact Form
+//------------------------------------------------------------------------------
+
+#ContactForm {
+	max-width: 500px;
+}
+
+#ContactForm input[type="text"],
+#ContactForm input[type="email"],
+#ContactForm textarea {
+	width: 100%;
+}
+
+#ContactForm button {
+	@extend .Button-Primary;
+}

@@ -1,0 +1,45 @@
+<div class="Product MiniListProduct {ProductClass}">
+	<div class="MiniListCol MiniListColImage">
+		<a class="ProductImage" href="{ProductURL}" {ProductLinkData}>
+			<div class="AspectRatio">
+				<div class="ProductImageContainer">
+					<img src="{ProductImageUrl(imagesize: 'mini')}" loading="lazy" alt="{ProductName}">
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="MiniListCol MiniListColDetails">
+		{ProductName(
+			before: '<a class="ProductName" href="{ProductURL}" {ProductLinkData}>',
+			after: '</a>'
+		)}
+		<div class="ProductPrices">
+			{ProductComparePrice(
+				currencysymbol: 'true',
+				before: '
+					{ProductPrice(
+						currencysymbol: 'true',
+						before: '<span class="ProductDiscountPrice">',
+						after: '</span>'
+					)}
+					<span class="ProductComparePrice">',
+				after: '</span>',
+				or: '
+					{ProductPrice(
+						currencysymbol: 'true',
+						before: '<span class="ProductCurrentPrice">',
+						after: '</span>'
+					)}'
+			)}
+		</div>
+		{ProductAvailability}
+	</div>
+	<div class="MiniListCol MiniListColBuy">
+		{ProductAddToCart(
+			or: '
+				<div class="ListProductFollow">
+					<a href="#" data-modal data-modal-interface="Products?id={ProductId}&Helper=helpers/modals/product-availability-form" class="Button"><span data-availability="{ProductAvailability(html: 'false')}">{%SubscribeAvailabilityNotification}</span></a>
+				</div>'
+		)}
+	</div>
+</div>

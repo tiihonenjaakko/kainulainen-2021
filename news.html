@@ -1,0 +1,48 @@
+{Helper(file: 'helpers/header')}
+{NewsImageUrl(
+	imagesize: 'banner-wide',
+	before: '
+		<div class="Banners Banners-Wide Banners-Wide-Contained Hide-Desktop">
+			<div class="Banner Banner-Wide">
+				<div class="AspectRatio">
+					<div class="BannerBackgroundImage" style="background-image: url({NewsImageUrl(imagesize: 'banner-wide')})" data-src="',
+	after: '"></div>
+				</div>
+			</div>
+		</div>'
+)}
+<div class="SiteContent">
+	{NewsImageUrl(
+		imagesize: 'banner-wide',
+		before: '
+			<div class="Hide-Tablet Margin-Bottom">
+				<div class="Banners Banners-Wide Banners-Wide-Contained">
+					<div class="Banner Banner-Wide">
+						<div class="AspectRatio">
+							<div class="BannerBackgroundImage" style="background-image: url({NewsImageUrl(imagesize: 'banner-wide')})" data-src="',
+		after: '"></div>
+						</div>
+					</div>
+				</div>
+			</div>'
+	)}
+	<div class="Container">
+		<div class="Flex Flex-Layout FlexValign-Start">
+			<div class="FlexItem FlexItem-Grow MainColumn">
+				<h1>{PageTitle}</h1>
+				<div class="TextArea-Narrow">
+					{Content}
+				</div>
+			</div>
+			<div class="FlexItem AsideColumn">
+				<h3>{%News}</h3>
+				{News(
+					show: 'all',
+					before: '<div class="SideNavigation" data-navigation-expandable>',
+					after: '</div>'
+				)}
+			</div>
+		</div>
+	</div>
+</div>
+{Helper(file: 'helpers/footer')}

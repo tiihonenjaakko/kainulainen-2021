@@ -1,0 +1,297 @@
+//------------------------------------------------------------------------------
+// Font Awesome
+//------------------------------------------------------------------------------
+
+.fa {
+	@extend #{$fa-style};
+}
+
+.fa:first-child {
+	margin-right: 0.25em;
+}
+
+.fa:last-child {
+	margin-left: 0.25em;
+}
+
+.fa:first-child:last-child {
+	margin-left: 0;
+}
+
+//------------------------------------------------------------------------------
+// Badge
+//------------------------------------------------------------------------------
+
+.Badge {
+	background-color: var(--color-accent-2);
+	border-radius: var(--border-radius);
+	display: block;
+	color: var(--color-light);
+	font-size: 1.4rem;
+	padding: .2rem 1rem;
+	position: absolute;
+	right: 0rem;
+	top: 2rem;
+}
+
+.NewBadge {
+	background: var(--color-accent-1);
+	display: none;
+	padding: .2rem 1rem;
+	letter-spacing: 1.12px;
+}
+
+.ListItem .NewBadge {
+	color: var(--color-dark);
+	left: 0;
+	padding: .2rem 1rem;
+	right: inherit;
+	top: 0;
+}
+
+.NewProduct .NewBadge {
+	display: initial;
+}
+
+//------------------------------------------------------------------------------
+// Logo Link
+//------------------------------------------------------------------------------
+
+.LogoLink {
+	@extend h2;
+	display: inline-block;
+	margin: 0;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+//------------------------------------------------------------------------------
+// Content
+//------------------------------------------------------------------------------
+
+.ContentTitle {
+	@extend %content-headings;
+}
+
+.ContentSection {
+	--top-margin: var(--large-margin);
+}
+
+.ContentSection + .ContentSection {
+	margin-top: var(--top-margin);
+}
+
+.ContenSection:empty {
+	display: none;
+}
+
+.ContentSection-Narrow {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 600px;
+}
+
+.BackgroundShade {
+	background-color: var(--color-boxed-bg);
+}
+
+.ContentPullMargins {
+	padding: var(--large-margin) var(--margin) calc(var(--large-margin) * 1.5);
+}
+
+.ContentPullMargins {
+	@include pull-margins;
+}
+
+.ContentMobilePullMargins {
+	padding: var(--margin);
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+	.ContentMobilePullMargins {
+		@include pull-margins;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Sharing
+//------------------------------------------------------------------------------
+
+.fb-like {
+	max-width: 100%;
+	overflow: hidden;
+}
+
+.ExtShareButtons + .fb-like {
+	margin-top: var(--margin);
+}
+
+//------------------------------------------------------------------------------
+// News
+//------------------------------------------------------------------------------
+
+.Blog {
+	margin-top: 6rem;
+}
+
+.NewsList .flickity-prev-next-button {
+	top: calc(38%);
+}
+
+.NewsSection {
+  @include flexbox;
+  flex-flow: row wrap;
+  margin: 0 -10px;
+}
+
+.NewsThumb {
+  width: 100%;
+}
+
+.NewsThumb img {
+  height: 52rem;
+  object-fit: cover;
+  width: 100%;
+}
+
+.NewsThumb .NoImage {
+  @include flexbox;
+  align-items: center;
+  height: 200px;
+  justify-content: center;
+  width: 100%;
+}
+
+.NewsThumb .NoImage img {
+  max-height: 70%;
+  max-width: 70%;
+  object-fit: contain;
+  opacity: .1;
+  padding: 30px;
+}
+
+.NewsContent a {
+  display: inline;
+}
+
+.NewsImage img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.NewsImage img, .NewsContent {
+  border: 1px solid #ececec;
+  margin-top: -1px;
+}
+
+.NewsContent {
+  background: #fbfbfb;
+  padding: 10px;
+}
+
+.NewsItems .Path {
+  padding: 0;
+}
+
+.NewsTitle {
+	white-space: initial;
+}
+
+.NewsTitle h5 {
+  font-size: 1.7rem;
+	font-weight: 600;
+	letter-spacing: 0.51px;
+	line-height: 2.4rem;
+	margin-top: 1rem;
+}
+
+.NewsTitle h5 a {
+  text-decoration: none;
+}
+
+.NewsTitle p {
+  font-size: 1.4rem;
+	letter-spacing: 1.12px;
+	line-height: 1.8rem;
+	margin-top: 2.5rem;
+}
+
+@media (max-width: $breakpoint-mobile) {
+	.NewsTitle {
+		max-height: 19rem;
+		h5 {
+		}
+	}
+}
+
+.NewsItem {
+  transition: all .3s ease-in-out;
+  width: calc(33.33% - 20px);
+}
+
+.NewsPage .NewsItem {
+  display: none;
+}
+
+.NewsPage .NewsItem.display {
+  display: initial;
+}
+
+.NewsItem:hover {
+}
+
+.NewsButtons {
+  @include flexbox;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.NewsButtons a {
+  margin: 5px;
+  padding: 10px 30px;
+}
+
+.NewsButtons .NewsButton:last-child a {
+}
+
+.NewsOverview {
+  overflow: hidden;
+  padding: 10px 10px 20px;
+}
+
+.Excerpt {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  font-weight: normal;
+  height: 50px;
+  line-height: 1.5;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.NewsPage .NewsItem {
+  width: calc(33.33% - 20px);
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .NewsItem {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .NewsItem {
+    width: calc(100% - 20px) !important;
+  }
+}
+
+.NewsPage img, .InfoPage img {
+  width: inherit;
+}
+
+.NewsPage .Banner, .InfoPage .Banner {
+  background: inherit;
+}

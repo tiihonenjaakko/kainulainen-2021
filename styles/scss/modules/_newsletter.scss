@@ -1,0 +1,89 @@
+//------------------------------------------------------------------------------
+// Newsletter Subscribe Form
+//------------------------------------------------------------------------------
+
+.NewsletterSection {
+	--color: var(--color-dark);
+	--link: var(--color-dark);
+	background-color: var(--color-base-3);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: var(--color);
+	padding: var(--margin) 0;
+}
+
+.Newsletter {
+	@include flexbox;
+	@include align-items(center);
+}
+
+.Newsletter > h2 {
+	margin: 0 2rem 0 0;
+	white-space: nowrap;
+}
+
+.Newsletter > p {
+	display: none;
+	margin: 0;
+}
+
+.Newsletter #NewsletterSubscribeForm {
+	margin: 0;
+	position: relative;
+	width: 100%;
+
+	.FormItem {
+		margin: 0;
+	}
+}
+
+.Newsletter #NewsletterSubscribeForm label {
+	display: none;
+}
+
+.Newsletter #NewsletterSubscribeForm input {
+	border-color: var(--color-input-bg);
+}
+
+.Newsletter #NewsletterSubscribeForm button {
+	--background-color: var(--color-base-2);
+	--border-color: var(--color-input-bg);
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.Newsletter .PrivacyPolicy {
+	background-color: var(--black-25);
+	display: none;
+	font-size: var(--font-size-xsmall);
+	margin: 0;
+	padding: .5rem;
+	position: absolute;
+}
+
+.Newsletter #NewsletterCaptchaBadge {
+	display: none;
+	margin-top: 5px;
+	position: absolute;
+}
+
+.Newsletter form.Focused {
+	#NewsletterCaptchaBadge {
+		display: block;
+	}
+
+	.PrivacyPolicy {
+		display: block;
+	}
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+	.Newsletter {
+		display: block;
+	}
+
+	.Newsletter > h2 {
+		margin-bottom: var(--margin);
+	}
+}

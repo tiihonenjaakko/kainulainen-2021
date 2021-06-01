@@ -1,0 +1,159 @@
+//------------------------------------------------------------------------------
+// Grid System
+//------------------------------------------------------------------------------
+
+$container-max-width:         1400px !default;
+
+$breakpoint-desktop:          1200px !default;
+$breakpoint-tablet:           1024px !default;
+$breakpoint-mobile-wide:      800px !default;
+$breakpoint-mobile:           600px !default;
+
+//------------------------------------------------------------------------------
+// Font Awesome
+//------------------------------------------------------------------------------
+
+$fa-font-path:                '../vendor/font-awesome-pro/webfonts' !default;
+$fa-style:                    '.fal' !default;
+
+//------------------------------------------------------------------------------
+// CSS Custom Properties
+//------------------------------------------------------------------------------
+
+:root {
+
+	/* Defaults */
+
+	--document-font-size:          62.5%; /* = 10px */
+	--line-height:                 1.5;
+
+	--font-family:                 'Quicksand', sans-serif;
+	--font-family-headings:        'Montserrat', sans-serif;
+
+	--font-size:                   1.4rem;
+	--font-size-small:             1.2rem;
+	--font-size-large:             1.6rem;
+
+	--color:                       var(--color-dark);
+	--color-dark:                  #000;
+	--color-light:                 #fefefe;
+
+	--background-color:            var(--color-footer-bg);
+	--border-color:                var(--color-border-1);
+
+	--link:                        var(--color-dark);
+	--link-hover:                  var(--color-accent-1-darker);
+	--link-active:                 var(--color-accent-2-lighter);
+
+	/* Color Properties */
+
+	--accent-1-hue:                34;
+	--accent-1-saturation:         36%;
+
+	--accent-2-hue:                0;
+	--accent-2-saturation:         0%;
+
+	--color-accent-1:              hsl(var(--accent-1-hue), var(--accent-1-saturation), 77%);
+	--color-accent-1-lighter:      hsl(var(--accent-1-hue), var(--accent-1-saturation), 53%);
+	--color-accent-1-darker:       hsl(var(--accent-1-hue), var(--accent-1-saturation), 33%);
+
+	--color-accent-2:              hsl(var(--accent-2-hue), var(--accent-2-saturation), 0%);
+	--color-accent-2-lighter:      hsl(var(--accent-2-hue), var(--accent-2-saturation), 21%);
+	--color-accent-2-darker:       hsl(var(--accent-2-hue), var(--accent-2-saturation), 33%);
+
+	--color-base-1:                #ffffff;
+	--color-base-2:                hsl(var(--accent-1-hue), 0%, 97%); // light tone background
+	--color-base-3:                hsl(var(--accent-1-hue), 0%, 94%);
+
+	--color-border-1:              hsl(var(--accent-1-hue), 0%, 90%); // light borders
+	--color-border-2:              hsl(var(--accent-1-hue), 0%, 85%); // strong borders
+
+	--color-success:               hsl(140, var(--accent-1-saturation), 43%);
+	--color-success-bg:            hsl(140, var(--accent-1-saturation), 90%);
+	--color-error:                 hsl(0, 71%, 53%);
+	--color-error-bg:              hsl(0, 71%, 95%);
+	--color-discount:              #B90606;
+
+	--black-0:                     rgba(0, 0, 0, 0);
+	--black-10:                    rgba(0, 0, 0, 0.1);
+	--black-25:                    rgba(0, 0, 0, 0.25);
+	--black-50:                    rgba(0, 0, 0, 0.5);
+	--black-75:                    rgba(0, 0, 0, 0.75);
+
+	--white-0:                     rgba(255, 255, 255, 0);
+	--white-10:                    rgba(255, 255, 255, 0.1);
+	--white-25:                    rgba(255, 255, 255, 0.25);
+	--white-50:                    rgba(255, 255, 255, 0.5);
+	--white-75:                    rgba(255, 255, 255, 0.75);
+
+	/* Layout Colors */
+
+	--color-body-bg:               var(--color-base-1);
+	--color-body-border:           var(--border-color);
+
+	--color-header-bg:             var(--color-base-1);
+	--color-header-border:         var(--border-color);
+
+	--color-navbar-bg:             var(--color-base-1);
+	--color-navbar-border:         var(--border-color);
+
+	--color-dropnav-bg:            var(--color-base-1);
+	--color-dropnav-border:        var(--border-color);
+
+	--color-utility-bar-bg:        var(--color-base-1);
+	--color-utility-bar-border:    var(--border-color);
+
+	--color-footer-bg:             var(--color-base-1);
+	--color-footer-border:         var(--border-color);
+
+	--color-drawer-bg:             var(--color-base-1);
+	--color-drawer-border:         var(--border-color);
+
+	--color-image-bg:              var(--color-base-2);
+	--color-image-border:          var(--border-color);
+
+	--color-input-bg:              var(--color-base-1);
+	--color-input-border:          var(--color-border-2);
+
+	--color-boxed-bg:              var(--color-base-2);
+	--color-banner-bg:             var(--color-base-2);
+	--color-loader-bg:             var(--white-50);
+	--color-notification-bg:       #ffeecc;
+
+	/* Margins */
+
+	--margin:                      3rem;
+	--small-margin:                2rem;
+	--large-margin:                6rem;
+	--xlarge-margin:               8rem;
+
+	/* Buttons and Inputs */
+
+	--input-height:                4rem;
+	--button-height:               4rem;
+
+	/* Grid System */
+
+	--container-max-width:         #{$container-max-width};
+	--container-page-margin:       9.5vw;
+	--grid-gutter:                 3rem;
+	--grid-list-gutter:            3rem;
+	--list-item-image-ratio:       1.25;
+
+	/* Border Radiuses */
+
+	--border-radius:               0px;
+	--border-radius-medium:        0px;
+	--border-radius-large:         0px;
+
+	/* Transition Durations */
+
+	--transition-fast:             0.15s;
+	--transition-slow:             0.3s;
+
+	/* Raster Icons */
+
+	--icon-select-dark:            url('../images/angle-down-dark.png');
+	--icon-select-light:           url('../images/angle-down-light.png');
+
+}

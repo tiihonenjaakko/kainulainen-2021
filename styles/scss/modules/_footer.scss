@@ -1,0 +1,171 @@
+//------------------------------------------------------------------------------
+// Footer
+//------------------------------------------------------------------------------
+
+.Footer {
+	padding: 8rem 0;
+	img {
+		max-height: 6rem;
+	}
+}
+
+.FooterCopy .Copyright {
+	letter-spacing: 0.42px;
+	padding: 3rem 0;
+}
+
+.FooterItems {
+	@include align-items(flex-start);
+	@include flexbox;
+	justify-content: space-between;
+}
+
+.FooterItems .FooterItem {
+	@include flex(1);
+}
+
+.FooterItems .FooterItem h2 {
+	font-size: 1.7rem;
+	font-weight: 600;
+	letter-spacing: 0.51px;
+	line-height: 2.4rem;
+}
+
+@media screen and (max-width: $breakpoint-mobile-wide) {
+	.FooterItems {
+		display: block;
+	}
+
+	.FooterItem {
+		margin-bottom: 4rem;
+	}
+}
+
+.Footer .FollowUs {
+	display: flex;
+	img {
+		height: 3rem;
+		position: relative;
+		margin-top: -0.5rem;
+		margin-left: 3rem;
+	}
+}
+
+.CompanyInfo {
+	padding-top: 5rem;
+	h3 {
+		font-size: 1.7rem;
+		font-weight: 600;
+		letter-spacing: 0.51px;
+		line-height: 2.4rem;
+	}
+	p {
+		font-size: 1.4rem;
+		letter-spacing: 0.42px;
+		line-height: 2.5rem;
+		margin: 0;
+	}
+	strong {
+		font-weight: bold;
+	}
+	.InfoBlock {
+		margin-bottom: 2rem;
+	}
+}
+
+.Footer .InfoNavigation {
+	margin-bottom: 5rem;
+	.Current a {
+		text-decoration: underline;
+	}
+}
+
+.Footer .LogoLink img {
+	margin-top: -2rem;
+}
+
+.NewsLetterItem {
+	margin-bottom: 8rem;
+	button {
+		@include icon-after($fa-var-minus);
+		content: '';
+		background: var(--color-dark);
+		border: var(--color-dark);
+		border-radius: 2rem;
+		color: var(--color-light);
+		font-weight: 600;
+		position: relative;
+    margin-left: -11.1rem;
+	}
+	button:after {
+		font-size: 1.7rem;
+		line-height: 1.5rem;
+		position: relative;
+		top: 2px;
+	}
+	button:hover {
+		background: var(--color-accent-2-lighter);
+
+	}
+	h2 {
+		font-size: 1.7rem;
+		font-weight: 600;
+		line-height: 2.4rem;
+	}
+	input {
+		border: 1px solid var(--color-accent-1);
+		border-radius: 2rem;
+		background: var(--color-accent-1);
+		outline: 0;
+		width: 38rem;
+	}
+	p {
+		display: none;
+	}
+	::placeholder {
+		color: var(--color-dark);
+		font-weight: 600;
+		padding-left: 1rem;
+	}
+}
+
+@media (max-width: 1550px) {
+	.NewsLetterItem {
+		input {
+			width: 28rem;
+		}
+	}
+}
+
+@media (max-width: $breakpoint-tablet) {
+	.NewsLetterItem {
+		button {
+		}
+		input {
+			display: initial;
+		}
+	}
+}
+
+.PaymentImages {
+	margin-bottom: 8rem;
+}
+
+.PaymentShippingBanners {
+	img {
+		background: #fff;
+		margin-right: 1rem;
+	  max-height: 40px;
+	  max-width: 80px;
+	  object-fit: contain;
+	  padding: 3px;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Newsletter Subscribe Form
+//------------------------------------------------------------------------------
+
+.Footer #NewsletterSubscribeForm label {
+	display: none;
+}

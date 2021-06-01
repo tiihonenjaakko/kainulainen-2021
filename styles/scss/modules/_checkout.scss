@@ -1,0 +1,189 @@
+//------------------------------------------------------------------------------
+// Checkout Content Section
+//------------------------------------------------------------------------------
+
+.Checkout .ContentSection + .ContentSection {
+	border-top: 2px solid var(--border-color);
+	padding-top: var(--large-margin);
+}
+
+//------------------------------------------------------------------------------
+// Checkout Transfer to Payment
+//------------------------------------------------------------------------------
+
+.CheckoutTransferToPaymentForm {
+	display: inline-block;
+	margin: 0 5px 10px 0;
+	vertical-align: middle;
+	width: 240px;
+}
+
+.CheckoutTransferToPaymentLogo {
+	display: block;
+	line-height: 60px;
+	margin-bottom: 10px;
+}
+
+.CheckoutTransferToPayment [type='submit'] {
+	background-color: var(--color-image-bg);
+	border-color: var(--border-color);
+	display: block;
+	height: 140px;
+	width: 100%;
+}
+
+.CheckoutTransferToPayment [type='submit']:hover {
+	background-color: var(--color-image-bg);
+	border-color: var(--color-accent-2);
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+	.CheckoutTransferToPaymentForm {
+		margin-right: 0;
+		width: 100%;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Checkout Marketing Permissions
+//------------------------------------------------------------------------------
+
+#CheckoutMarketingPermissions .Checks label {
+	background-color: var(--color-button-bg);
+	border: 1px solid var(--border-color);
+	border-radius: var(--border-radius);
+	display: inline-block;
+	padding: 10px 15px;
+	vertical-align: middle;
+}
+
+#CheckoutMarketingPermissions .Checks input {
+	margin-right: 10px;
+}
+
+@media screen and (max-width: $breakpoint-mobile-wide) {
+	#CheckoutMarketingPermissions .Checks > label {
+		display: block;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Klarna Checkout
+//------------------------------------------------------------------------------
+
+#KlarnaCheckoutWrap {
+	max-width: 640px;
+}
+
+#KlarnaCheckoutWrap > :last-child {
+	margin-bottom: 0;
+}
+
+#klarna-checkout-container {
+	margin: -12px;
+}
+
+#KlarnaCheckoutThanks {
+	border: 1px solid var(--border-color);
+	border-radius: var(--border-radius);
+	padding: var(--margin);
+}
+
+.JS input#postal_code {
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+}
+
+input#postal_code + button.Submit {
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
+
+//------------------------------------------------------------------------------
+// Single Page Checkout
+//------------------------------------------------------------------------------
+
+#CheckoutForm {
+	margin: auto;
+	max-width: 640px;
+}
+
+//------------------------------------------------------------------------------
+// Checkout Address Form
+//------------------------------------------------------------------------------
+
+#CheckoutForm textarea {
+	width: 100%;
+}
+
+#CheckoutShippingMethods .CheckWrap > .label,
+#CheckoutPaymentMethods .CheckWrap > .label {
+	display: none;
+}
+
+#CheckoutBillingAddress .FormItem {
+	width: 100%;
+
+	input:not([type="radio"]):not([type="checkbox"]),
+	select,
+	textarea {
+		width: 100%;
+	}
+
+	.InlineCheck {
+		margin: 5px 0 0;
+	}
+}
+
+#CheckoutBillingAddress .GroupItem {
+	@include flexbox;
+	@include flex-wrap;
+
+	.GroupLabel {
+		display: none;
+		width: 100%;
+	}
+
+	& > div {
+		@include flex(1);
+	}
+
+	& > div:last-child {
+		margin-right: 0;
+	}
+}
+
+#CheckoutBillingAddress {
+	.GroupErrorMessage,
+	.FormNotification {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: $breakpoint-mobile-wide) {
+	#CheckoutBillingAddress .GroupItem {
+		display: block;
+	}
+}
+
+#CheckoutShippingAddress {
+	@extend #CheckoutBillingAddress;
+}
+
+#CheckoutForm .SubmitButton {
+	@extend .Button-Big;
+	min-width: 200px;
+}
+
+.SubmitButton, .OrderProducts, .Button-Big, .CampaignCodeForm button {
+	@include icon-after($fa-var-minus);
+	content: '';
+	letter-spacing: 1.12px;
+	line-height: 1.8rem;
+}
+.SubmitButton::after, .OrderProducts::after, .Button-Big::after, .CampaignCodeForm button::after {
+	font-size: 1.7rem;
+	line-height: 1.5rem;
+	position: relative;
+	top: 2px;
+}

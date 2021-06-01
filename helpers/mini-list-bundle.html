@@ -1,0 +1,36 @@
+<div class="Product MiniListProduct {ProductClass}">
+	<div class="MiniListCol MiniListColImage">
+		<a class="ProductImage" href="{BundleURL}">
+			<div class="AspectRatio">
+				<div class="ProductImageContainer">
+					<img src="{BundleImageUrl(imagesize: 'mini')}" loading="lazy" alt="{BundleName}">
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="MiniListCol MiniListColDetails">
+		{BundleName(
+			before: '<a class="ProductName" href="{BundleURL}">',
+			after: '</a>'
+		)}
+		<div class="ProductPrices">
+			{BundleComparePrice(
+				currencysymbol: 'true',
+				before: '
+					{BundlePrice(
+						currencysymbol: 'true',
+						before: '<span class="ProductDiscountPrice">',
+						after: '</span>'
+					)}
+					<span class="ProductComparePrice">',
+				after: '</span>',
+				or: '
+					{BundlePrice(
+						currencysymbol: 'true',
+						before: '<span class="ProductCurrentPrice">',
+						after: '</span>'
+					)}'
+			)}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,36 @@
+{Categories(
+	show: 'all',
+	start: '1',
+	before: '
+		<div class="Sidebar">
+			<div class="SideNavigation" data-navigation-expandable>',
+	after: '
+			</div>
+		</div>'
+)}
+{Banners(
+	name: 'sidebar',
+	before: '<div class="Banners Banners-Side">',
+	after: '</div>',
+	helper: '{{
+		<div class="Banner Banner-Side">
+			{BannerUrl(
+				before: '<a class="BannerCoverLink" href="',
+				after: '" {BannerLinkData}></a>'
+			)}
+			{BannerImageURL(
+				width: '480',
+				before: '<div class="BannerImage"><img src="',
+				after: '" alt=""></div>'
+			)}
+			{BannerText(
+				before: '
+					<div class="BannerContent">
+						<div class="BannerText">',
+				after: '
+						</div>
+					</div>'
+			)}
+		</div>
+	}}'
+)}

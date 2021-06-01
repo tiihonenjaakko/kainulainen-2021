@@ -1,0 +1,84 @@
+				</div>
+				</div>
+				<div class="SiteFooter">
+					<div class="Footer">
+						<div class="Container">
+							<div class="Flex FooterItems">
+								<div class="FlexItem FooterItem">
+									{Logo}
+									{Banners(
+										name:'companyinfo',
+										before: '<div class="CompanyInfo">',
+										after: '</div>',
+										helper: '{{
+											<div class="InfoBlock">
+												{BannerText}
+											</div>
+										}}'
+									)}
+								</div>
+								<div class="FlexItem FooterItem">
+									{InfoNavigation(
+										levels: '1',
+										before: '
+											<h2>{%WebShop}</h2>
+											<div class="SimpleNavigation">',
+										after: '
+											</div>'
+									)}
+									{Categories(
+										levels: '1',
+										before: '
+											<h2>{%Categories}</h2>
+											<div class="SimpleNavigation">',
+										after: '
+											</div>'
+									)}
+								</div>
+								<div class="FlexItem FooterItem">
+									<div class="NewsLetterItem">
+										{NewsletterSubscribeForm}
+									</div>
+									<div class="PaymentImages">
+										<h2>{%SavePayments}</h2>
+										{Banners(
+											name:'paymentbanners',
+											before: '<div class="PaymentShippingBanners">',
+											after: '</div>'
+										)}
+									</div>
+									<div class="FollowUs">
+										<h2>{%FollowUs}</h2>
+										{Banner(
+											name:'footer-facebook',
+											helper: '{{
+												{BannerImage(
+													link: 'false',
+													before: '<a target="_blank" href="{BannerUrl}">',
+													after: '</a>'
+												)}
+											}}'
+										)}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="FooterCopy">
+						<div class="Container">
+							<div class="Copyright">
+								<div class="Flex Flex-Collapse">
+									<div class="FlexItem">
+										<p>&copy; Kelloliike P.Kainulainen Oy</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{Helper(file: 'helpers/drawers')}
+		{Helper(file: 'helpers/scripts')}
+	</body>
+</html>

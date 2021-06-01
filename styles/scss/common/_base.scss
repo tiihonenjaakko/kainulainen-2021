@@ -1,0 +1,219 @@
+//------------------------------------------------------------------------------
+// Placeholders
+//------------------------------------------------------------------------------
+
+%default-margin {
+	margin: 0 0 2rem;
+}
+
+%clearfix {
+	@include clearfix;
+}
+
+//------------------------------------------------------------------------------
+// Box Model
+//------------------------------------------------------------------------------
+
+html {
+	@include box-sizing(border-box);
+}
+
+*, *:before, *:after {
+	@include box-sizing(inherit);
+}
+
+input[type='search'] {
+	@include box-sizing(inherit);
+}
+
+//------------------------------------------------------------------------------
+// Margins
+//------------------------------------------------------------------------------
+
+h1, h2, h3, h4, h5, h6, p, form, table,
+hr, dl, ol, ul {
+	@extend %default-margin;
+}
+
+//------------------------------------------------------------------------------
+// Borders & Paddings
+//------------------------------------------------------------------------------
+
+fieldset {
+	border: 0;
+	padding: 0;
+}
+
+fieldset > :last-child {
+	margin-bottom: 0;
+}
+
+//------------------------------------------------------------------------------
+// Miscellaneous
+//------------------------------------------------------------------------------
+
+a, button {
+	cursor: pointer;
+}
+
+[disabled] {
+	opacity: 0.5;
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+//------------------------------------------------------------------------------
+// Document
+//------------------------------------------------------------------------------
+
+body {
+	--background-color: var(--color-footer-bg);
+	margin: 0;
+}
+
+//------------------------------------------------------------------------------
+// Media Elements
+//------------------------------------------------------------------------------
+
+audio, canvas, img, progress, video {
+	display: inline-block;
+	max-height: 100%;
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+figure {
+	@extend %default-margin;
+}
+
+iframe {
+	box-shadow: 0 2px 4px var(--black-25);
+	max-width: 100%;
+}
+
+//------------------------------------------------------------------------------
+// Links
+//------------------------------------------------------------------------------
+
+a {
+	color: var(--link);
+	transition-duration: var(--transition-fast);
+
+	&:hover {
+		color: var(--link-hover);
+	}
+
+	&:active {
+		color: var(--link-active);
+	}
+}
+
+#InfoPage,
+#News,
+.Banner,
+.BrandDescription,
+.CampaignDescription,
+.CategoryDescription,
+.ProductDescription {
+	--link: var(--color-accent-2);
+
+	&:hover {
+		--link-hover: var(--color);
+	}
+
+	ul:not(.NavigationList) {
+		list-style-position: outside;
+		padding: 0 0 0 2rem;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Lists
+//------------------------------------------------------------------------------
+
+ul, ol {
+	list-style-position: inside;
+	padding: 0;
+}
+
+dl dt {
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+dl dt:first-child {
+	margin-top: 0;
+}
+
+dl dd {
+	margin-left: 0;
+}
+
+.CompactDl dt {
+	display: inline;
+	font-weight: bold;
+	margin: 0;
+}
+
+.CompactDl dt:first-child {
+	margin-top: 0;
+}
+
+.CompactDl dd {
+	display: inline;
+	margin: 0 0 0 5px;
+}
+
+.CompactDl dd + dt:before {
+	clear: both;
+	content: '';
+	display: block;
+	height: 5px;
+}
+
+//------------------------------------------------------------------------------
+// Tables
+//------------------------------------------------------------------------------
+
+table {
+	--background-color: var(--color-base-2);
+	background-color: var(--color-base-1);
+	border-collapse: collapse;
+	border-spacing: 0;
+	text-align: left;
+}
+
+table caption {
+	@extend h3;
+	text-align: left;
+}
+
+table th,
+table td {
+	border-bottom: 1px solid var(--border-color);
+	padding: 1rem 1.5rem;
+	vertical-align: top;
+}
+
+table th > :last-child,
+table td > :last-child {
+	margin-bottom: 0;
+}
+
+table tbody tr:nth-child(even) {
+	background-color: var(--background-color);
+}
+
+//------------------------------------------------------------------------------
+// Horizontal Rules
+//------------------------------------------------------------------------------
+
+hr {
+	background-color: var(--border-color);
+	border: 0;
+	display: block;
+	height: 1px;
+	margin: var(--large-margin) 0;
+}

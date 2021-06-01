@@ -1,0 +1,46 @@
+<div class="Sidebar" id="StickySideNavigation">
+	{Categories(
+		show: 'all',
+		before: '<div class="SideNavigation SideCategories" data-navigation-expandable>',
+		after: '</div>'
+	)}
+	<div class="FlexItemFilters">
+		<h3>{%Filter}</h3>
+		{ProductListFilters(
+			before: '
+			<p class="FiltersSelected">{%ProductFiltersSelected}</p>
+				<ul class="FilterTags">',
+			after: '
+					<li class="ClearAllFilters"><a href="{CategoryUrl}" class="RemoveFilter">{%ProductFiltersRemove}</a></li>
+				</ul>',
+			helper: 'helpers/filter-tag'
+		)}
+		{ProductListFilters(
+			before: '
+				<div class="SideNavigation">
+					<ul class="FiltersList NavigationList">',
+			after: '
+					</ul>
+				</div>',
+			helper: '{{
+				{FilterOptions(
+					before: '
+						<li class="HasSubCategories">
+							<h4>{FilterName}</h4>
+							<ul class="Categories NavigationList">',
+					after: '
+							</ul>
+						</li>',
+					helper: '{{
+						{FilterOptionSelectUrl(
+							before: '
+							<li class="SearchFilterOption"><a href="',
+								after: '" class="ApplyFilter" rel="nofollow">{FilterOptionName} <span class="SearchResultCount">({FilterOptionResultCount})</span></a></li>',
+								or: '<li class="SearchFilterOption Selected"><a href="{FilterOptionRemoveUrl}" class="RemoveFilterOption" rel="nofollow">{FilterOptionName} <span class="SearchResultCount">({FilterOptionResultCount})</span></a></li>'
+							)}
+					}}'
+				)}
+			}}'
+		)}
+	</div>
+</div>

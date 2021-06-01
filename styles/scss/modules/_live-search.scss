@@ -1,0 +1,78 @@
+//------------------------------------------------------------------------------
+// Live Search
+//------------------------------------------------------------------------------
+
+.LiveSearch {
+	position: relative;
+}
+
+.LiveSearch.Active .LiveSearchResults {
+	opacity: 1;
+	transform: translateY(0);
+	visibility: visible;
+}
+
+.LiveSearchTitle {
+	font-size: var(--font-size);
+	margin: 1rem 0;
+	padding: .5rem 1.5rem;
+
+	&:first-child {
+		margin-top: 1rem;
+	}
+}
+
+.LiveSearchSeparator {
+	border-top: 1px solid var(--border-color);
+	margin: 1.5rem 0;
+}
+
+//------------------------------------------------------------------------------
+// Live Search Results
+//------------------------------------------------------------------------------
+
+.LiveSearchResults,
+.LiveSearch.Active .LiveSearchResults:empty {
+	background-color: var(--color-base-1);
+	border-radius: var(--border-radius);
+	box-shadow: 0 0 0 1px var(--border-color), 0 2px 40px var(--black-10);
+	margin-top: .5rem;
+	opacity: 0;
+	position: absolute;
+	text-align: left;
+	top: 100%;
+	transform: translateY(10px);
+	transition-duration: var(--transition-fast);
+	visibility: hidden;
+	width: 100%;
+	z-index: 1000;
+}
+
+.LiveSearchResults .MiniListProduct {
+	padding: 1.5rem;
+}
+
+.LiveSearchActions .Button {
+	display: block;
+	margin: 20px auto;
+	max-width: calc(100% - 6rem);
+}
+
+.LiveSearchActions {
+	display: none;
+}
+
+.SearchResults div {
+	@include at-least(5, 'div') {
+		&:last-child {
+			display: block !important;
+		}
+	}
+}
+
+@media screen and (max-width: $breakpoint-mobile-wide) {
+	.LiveSearchResults .SearchFilter {
+		display: block;
+		margin: 0;
+	}
+}

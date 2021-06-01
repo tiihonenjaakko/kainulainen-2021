@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Theme>
+	<ImageSizes>
+		<Mini width="160" height="160" />
+		<List width="600" height="600" />
+		<Normal width="600" height="600" />
+		<Big width="1200" height="1200" />
+		<Banner-Body width="1600" />
+		<Banner-Wide width="1600" />
+	</ImageSizes>
+	<Features>
+		<Checkout>
+			<SinglePage supported="true" default="default" />
+			<MultiPage supported="false" />
+		</Checkout>
+		<GiftCards supported="true" />
+		<ProductBundles supported="true" />
+		<ProductListFilters supported="true" />
+	</Features>
+	<Settings>
+		<Doctype standard="HTML5" />
+		<ProductList>
+			<PageSizes>
+				<PageSize>40</PageSize>
+				<PageSize>80</PageSize>
+			</PageSizes>
+		</ProductList>
+	</Settings>
+</Theme>

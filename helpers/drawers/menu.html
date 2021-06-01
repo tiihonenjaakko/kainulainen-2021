@@ -1,0 +1,48 @@
+<div class="Drawer" data-drawer="menu" data-drawer-side="left">
+	<div class="DrawerSection">
+		<div class="CompactForm">
+			{Search(id: 'MobileSearch')}
+		</div>
+	</div>
+	{Categories(
+		show: 'all',
+		before: '<div class="DrawerMainNavigation" data-navigation-expandable>',
+		after: '</div>'
+	)}
+	{Campaigns(
+		before: '<div class="DrawerMainNavigation">',
+		after: '</div>'
+	)}
+	{InfoNavigation(
+		show: 'all',
+		before: '<div class="DrawerMainNavigation" data-navigation-expandable>',
+		after: '</div>'
+	)}
+	{CurrencyNavigation(
+		before: '
+			<div class="DrawerNavigation" data-navigation-expandable>
+				<ul>
+					<li class="HasSubCategories">
+						<a href="#">{%Currency} ({Currency})</a>',
+		after: '
+					</li>
+				</ul>
+			</div>'
+	)}
+	{LanguageNavigation(
+		before: '
+			<div class="DrawerNavigation" data-navigation-expandable>
+				<ul>
+					<li class="HasSubCategories">
+						<a href="#">{CurrentLanguage}</a>',
+		after: '
+					</li>
+				</ul>
+			</div>'
+	)}
+	{CustomerNavigation(
+		register: 'true',
+		before: '<div class="SimpleDrawerNavigation" data-navigation-expandable>',
+		after: '</div>'
+	)}
+</div>

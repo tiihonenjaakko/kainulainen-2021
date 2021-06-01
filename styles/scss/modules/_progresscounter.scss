@@ -1,0 +1,68 @@
+//------------------------------------------------------------------------------
+// Progress Counter
+//------------------------------------------------------------------------------
+
+.FreeProgressCounter {
+	text-align: center;
+	margin: 0 auto 20px auto;
+	max-width: 600px;
+	transition-duration: var(--transition-fast);
+}
+
+.FreeProgressCounter.HideCounter {
+	.ProgressLabel,
+	.ProgressVisualMask {
+		opacity: 0;
+	}
+}
+
+.ProgressLabel {
+	margin-bottom: 5px;
+	transition-duration: var(--transition-fast);
+}
+
+.ProgressLabel span {
+	color: var(--color-accent-2);
+	font-weight: bold;
+}
+
+.ProgressCounter {
+	@include flexbox;
+}
+
+.ProgressVisualCounter {
+	@include flex(1);
+	border: 2px solid var(--color-body-border);
+	border-radius: var(--border-radius-medium);
+	margin: 0 4px;
+	padding: 3px;
+}
+
+.ProgressVisualMask {
+	background-color: var(--color-accent-1);
+	background: repeating-linear-gradient(
+	45deg,
+	var(--color-accent-1),
+	var(--color-accent-1) 10px,
+	var(--color-accent-1, 10%) 10px,
+	var(--color-accent-1, 10%) 20px);
+	border-radius: var(--border-radius-medium);
+	display: block;
+	height: 100%;
+}
+
+.ProgressLabelSuccess {
+	display: none;
+}
+
+.JS-FreeShippingActivated .ProgressVisualMask {
+	background-color: var(--color-accent-1);
+}
+
+.JS-FreeShippingActivated .ProgressLabel {
+	display: none;
+}
+
+.JS-FreeShippingActivated .ProgressLabelSuccess {
+	display: block;
+}

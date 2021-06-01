@@ -1,0 +1,54 @@
+{Helper(file: 'helpers/header-sidebar')}
+{Helper(
+	file: 'helpers/category-header',
+	before: '<div class="Hide-Desktop">',
+	after: '</div>'
+)}
+<div class="SiteContent SiteContent-ProductList">
+	<div class="Container-ProductList">
+		<div class="Flex Flex-Layout FlexValign-Start">
+			<div class="FlexItem FlexItem-Grow MainColumn">
+				{Helper(
+					file: 'helpers/category-header',
+					before: '<div class="Hide-Tablet Margin-Bottom">',
+					after: '</div>'
+				)}
+				<div class="ContentSection">
+					<h1 class="CategoryName">{PageTitle}</h1>
+					{CategoryDescription(
+						before: '<div class="CategoryDesc"',
+						after: '</div>'
+					)}
+					<div class="Flex Flex-Wrap Flex-Collapse CategoryPagination">
+						<div class="FlexItem">
+							{PaginationStatus}
+						</div>
+						<div class="FlexItem FlexSpacer"></div>
+						{Helper(
+							file: 'helpers/pagination-form',
+							before: '
+								<div class="FlexItem FlexSpacer"></div>
+								<div class="FlexItem">',
+							after: '</div>'
+						)}
+					</div>
+					{NewProducts(
+						subcategories: 'true',
+						limit: '40|100',
+						pagination: 'true',
+						type: 'normal',
+						before: '
+							<div class="List ProductList">
+								<div class="GridList">',
+						after: '
+								</div>
+							</div>
+							{Helper(file: 'helpers/pagination')}',
+						helper: 'helpers/list-product'
+					)}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{Helper(file: 'helpers/footer')}

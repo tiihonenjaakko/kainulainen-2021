@@ -1,0 +1,368 @@
+//------------------------------------------------------------------------------
+// Category Filters
+//------------------------------------------------------------------------------
+
+.ProductListFilters {
+	@extend %default-margin;
+	@include flexbox;
+	flex-wrap: wrap;
+	//margin: calc(var(--grid-list-gutter) / 4 * -1);
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+	.ProductListFilters {
+		display: block;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Filter Group
+//------------------------------------------------------------------------------
+
+.FilterGroup {
+	margin: 1rem calc(var(--grid-list-gutter) / 4);
+	position: relative;
+}
+
+.FilterGroup a {
+	text-decoration: none;
+}
+
+.FilterGroupName {
+	@extend select;
+	border-radius: var(--border-radius);
+	background-image: none;
+	line-height: 2.8rem;
+	margin: 0;
+	min-width: 120px;
+	position: relative;
+	transition: none;
+
+	&:after {
+		@include icon($fa-var-chevron-down);
+		padding: 5px 12px;
+		position: absolute;
+		right: 0;
+		top: 7px;
+	}
+}
+
+.FilterGroup.ActiveGroup .FilterGroupName {
+	border-color: var(--color);
+}
+
+.FilterGroup.ActiveGroup .FilterList {
+	border-color: var(--color);
+}
+
+.FilterGroup.Navigable .FilterGroupName {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom: 0;
+	box-shadow: none;
+	outline: 0;
+	z-index: 2;
+
+	&:after {
+		content: $fa-var-chevron-up;
+	}
+}
+
+.FilterResultCount {
+	color: var(--color);
+	font-size: var(--font-size-small);
+}
+
+//------------------------------------------------------------------------------
+// Filter Group List
+//------------------------------------------------------------------------------
+
+.FilterList {
+	background-color: var(--color-input-bg);
+	border: 1px solid var(--border-color);
+	border-radius: 0 var(--border-radius) var(--border-radius) var(--border-radius);
+	top: calc(100% - 1px);
+	box-shadow: 0 1px 2px var(--black-10);
+	display: none;
+	left: 0;
+	margin: 0;
+	max-height: 300px;
+	max-width: 300px;
+	min-width: 210px;
+	outline: 0;
+	overflow: auto;
+	position: absolute;
+	z-index: 1;
+}
+
+.Navigable .FilterList {
+	display: block;
+}
+
+.FilterList ul {
+	margin: 0;
+}
+
+.FilterList li {
+	@include flexbox;
+	border-radius: var(--border-radius);
+	justify-content: space-between;
+	margin: 5px;
+	padding: 3px 10px;
+	position: relative;
+}
+
+.FilterList li:hover {
+	background-color: var(--color-base-2);
+}
+
+.FilterList li.Selected {
+	box-shadow: inset 0 0 0 1px var(--color-accent-2);
+}
+
+.FilterList a:before {
+	@include cover;
+	content: '';
+	display: block;
+}
+
+.FilterList .RemoveFilter {
+	background: none;
+	color: var(--color-accent-2);
+	margin-left: 5px;
+	padding: 0;
+}
+
+.FilterList .RemoveFilter:before {
+	margin: 0;
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+	.FilterList {
+		max-width: none;
+		width: 100%;
+	}
+}
+
+.FiltersSelected {
+	font-size: 1.4rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+}
+
+//------------------------------------------------------------------------------
+// Filter Tags List
+//------------------------------------------------------------------------------
+
+.FilterTags {
+	@extend .TagsList;
+}
+
+.RemoveFilter {
+	@extend .Tag;
+}
+
+.FilterTags .RemoveFilter:after {
+	@include icon($fa-var-times);
+	margin-left: 0.5rem;
+}
+
+.ClearAllFilters .RemoveFilter {
+	background-color: transparent;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	padding: 1.5rem 0 0;
+}
+
+.ClearAllFilters .RemoveFilter::after {
+	display: none !important;
+}
+
+.ClearAllFilters .RemoveFilter::before {
+	@include icon($fa-var-trash-alt);
+	margin-right: 0.5rem;
+}
+
+//------------------------------------------------------------------------------
+// FlexItemFilters
+//------------------------------------------------------------------------------
+
+.FlexItemFilters {
+	padding-left: 0;
+	margin-bottom: 6rem;
+	width: 240px;
+
+	a {
+		text-decoration: none;
+	}
+
+	h3 {
+		border-bottom: 1px solid var(--border-color);
+		display: grid;
+		font-size: 2rem;
+		font-weight: 600;
+		padding-bottom: 1rem;
+		margin-top: 4rem;
+	}
+	h3::after {
+		color: var(--color-accent-1);
+		margin-left: 0;
+		font-size: 50px;
+		line-height: 20px;
+	}
+
+	li, ul {
+		list-style: none;
+	}
+
+	.FilterTags {
+		margin-bottom: 2.4rem;
+	}
+}
+
+@media (max-width: $breakpoint-tablet) {
+	.CategoryFilters {
+		margin-top: 3rem;
+	}
+
+	.CategoryFilters select {
+		width: 100%;
+	}
+
+	.FlexItemFilters {
+		margin-bottom: 3rem;
+		width: 100% !important;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Filter wrap
+//------------------------------------------------------------------------------
+
+/*.SideNavigation h4 {
+	@include align-items(center);
+	@include flexbox;
+	border-bottom: 1px solid #000;
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	font-weight: 400;
+	margin: 0;
+	padding-bottom: 1rem;
+	padding-top: 1rem;
+	position: relative;
+	transition-duration: var(--transition-fast);
+	width: 100%;
+
+	&:after {
+		@include flex(1);
+		@include icon($fa-var-plus);
+		font-size: 1.4rem;
+		pointer-events: none;
+		text-align: right;
+	}
+
+	&.Active {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	&.Active:after {
+		@include icon($fa-var-times);
+	}
+
+	& + .AccordionWrap {
+		border-radius: var(--border-radius);
+		margin-bottom: 1rem;
+		max-height: 1px;
+		overflow: hidden;
+	}
+
+	&.Active + .AccordionWrap {
+		border-top: 0;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		max-height: 10000px;
+		padding-top: 1rem;
+	}
+}*/
+
+.SideNavigation h4 {
+  border-bottom: 1px solid #000;
+  cursor: pointer;
+  font-size: 1.7rem;
+	font-weight: 400;
+	line-height: 2.1rem;
+  margin: -1px 0 0 0;
+  padding: 1rem 0rem;
+  position: relative;
+  @include icon-after($fa-var-plus);
+}
+
+
+.SideNavigation h4:after {
+  @include flexbox;
+	align-items: center;
+	color: #000;
+	display: block;
+	font-size: 1.2rem;
+	height: 100%;
+  line-height: 31px;
+	padding: 1rem 0;
+	position: absolute;
+	right: 0;
+	top: -1px;
+}
+
+.SideNavigation h4.active::after {
+	@include icon($fa-var-times);
+	position: absolute;
+	right: 0;
+	top: 8px;
+}
+
+.SideNavigation {
+	background: var(--color-base-1);
+	border-bottom: 0;
+	font-family: var(--font-family);
+	width: 100%;
+
+	h4 {
+		font-family: var(--font-family);
+	}
+
+	.desc-wrap {
+	  display: none;
+		font-size: 1.4rem;
+		margin-top: -1px;
+	}
+
+	.ShortDesc {
+		font-size: 15px;
+	}
+
+	.desc-wrap:last-of-type {
+	  padding-bottom: 1px;
+	}
+
+	.desc-wrap > * {
+		border-top: 0;
+		margin: 0;
+		padding: 0.5rem 0;
+	}
+
+	.desc-wrap p {
+		padding: 0;
+	}
+}
+
+.CategoryFilters .SideNavigation {
+	border: 1px solid var(--border-color);
+}
+
+.SideNavigation li {
+	margin-bottom: 0 !important;
+}
+
+.PaginationForm select {
+	border: 1px solid var(--color-accent-1);
+}

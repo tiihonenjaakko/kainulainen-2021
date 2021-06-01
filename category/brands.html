@@ -1,0 +1,35 @@
+{Helper(file: 'helpers/header-sidebar')}
+<div class="SiteContent">
+	<div class="Container">
+		{Brands(
+			before: '<div class="ContainerSection">',
+			after: '</div>',
+			helper: '{{
+				<div class="ContentSection">
+					<div class="Flex CategoryHeader">
+						<div class="FlexItem FlexItem-Grow">
+							<h2 class="ContentTitle">
+								<a href="{BrandUrl}" class="CategoryTitle">{BrandName}</a>
+							</h2>
+						</div>
+						<div class="FlexItem">
+							<a href="{BrandUrl}" class="CategoryHeaderLink">{Text(code: 'SeeAll', or: '{%CheckoutOrderContent}')}</a>
+						</div>
+					</div>
+					<div class="List ProductList">
+						<div class="GridList GridListItemSmall CategoryPreview" data-slider="grid-list">
+							{BrandProducts(
+								brand: '{BrandID}',
+								limit: '18',
+								helper: 'helpers/list-product',
+								subcategories: 'true',
+								sort: 'sales_asc'
+							)}
+						</div>
+					</div>
+			</div>
+			}}'
+		)}
+	</div>
+</div>
+{Helper(file: 'helpers/footer')}

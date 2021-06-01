@@ -1,0 +1,102 @@
+<div id="SearchResults">
+	<div class="ContentSection">
+		<div class="Flex Flex-Collapse">
+			<div class="FlexItem">
+				<h1 class="H2">
+					{SearchKeyword(
+						before: '{%SearchPageTitle}:&nbsp;',
+						after: '',
+						or: '{%SearchNoTerms}'
+					)}
+				</h1>
+			</div>
+			<div class="FlexItem FlexSpacer"></div>
+			<div class="FlexItem">
+				{PaginationFormParameters(
+					before: '<form class="PaginationForm" action="{SearchUrl(or: '{CurrentUrl}')}" data-auto-submit>',
+					after: '
+							<div class="Flex Flex-NoMargin Flex-Collapse">
+								<div class="FlexItem">
+									{PaginationSort}
+								</div>
+								<div class="FlexItem">
+									{PaginationLimit}
+								</div>
+							</div>
+						</form>'
+				)}
+			</div>
+		</div>
+	</div>
+	<div class="ContentSection">
+		{Notifications(group: 'search')}
+		{SearchProducts(
+			pagination: 'true',
+			before: '
+				<div class="Grid">
+					<div class="Col-3-12 Col-Tablet-12-12">
+						{SearchFilters(
+							limit: '8',
+							before: '<div class="SearchFilters">',
+							after: '</div>',
+							helper: '{{
+								<div class="SearchFilter">
+									<h3 class="SearchFilterTitle">{SearchFilterName}</h3>
+									{SearchFilterOptions}
+								</div>
+							}}'
+						)}
+					</div>
+					<div class="Col-9-12 Col-Tablet-12-12">
+						<div class="GridList">',
+			after: '
+						</div>
+						{Helper(file: 'helpers/pagination')}
+					</div>
+				</div>',
+			helper: 'helpers/list-product'
+		)}
+	</div>
+	{SearchSuggestions(
+		before: '
+			<div class="ContentSection">
+				<h3 class="FullSearchSuggestionsTitle">{%SearchSuggestionsLabel}</h3>
+				<ul class="FullSearchSuggestions">',
+		after: '
+				</ul>
+			</div>',
+		helper: '{{
+			<li>
+				<a href="{SearchUrl}">{SearchKeyword}</a>
+			</li>
+		}}'
+	)}
+	{TopSellers(
+		limit: '10',
+		type: 'normal',
+		before: '
+			<div class="ContentSection">
+				<h2 class="ContentTitle">{%BestsellingProducts}</h2>
+				<div class="List ProductList">
+					<div class="GridList GridList-Wide">',
+		after: '
+					</div>
+				</div>
+			</div>',
+		helper: 'helpers/list-product'
+	)}
+	{LastViewedProducts(
+		limit: '10',
+		type: 'normal',
+		before: '
+			<div class="ContentSection">
+				<h2 class="ContentTitle">{%ProductsConsidered}</h2>
+				<div class="List ProductList">
+					<div class="GridList GridList-Wide">',
+		after: '
+					</div>
+				</div>
+			</div>',
+		helper: 'helpers/list-product'
+	)}
+</div>

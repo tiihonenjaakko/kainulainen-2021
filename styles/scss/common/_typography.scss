@@ -1,0 +1,152 @@
+//------------------------------------------------------------------------------
+// Document
+//------------------------------------------------------------------------------
+
+html {
+	font-size: var(--document-font-size);
+}
+
+body {
+	color: var(--color);
+	font: var(--font-size)/var(--line-height) var(--font-family);
+	font-weight: 300;
+}
+
+button, input, select, textarea {
+	color: inherit;
+	font: inherit;
+}
+
+blockquote {
+	font-style: italic;
+	margin-left: 0;
+	padding-left: 1.5rem;
+}
+
+strong {
+	font-weight: 500;
+}
+
+@media screen and (max-width: $breakpoint-mobile-wide) {
+	:root {
+		--document-font-size: 58.03575%; /* 12px */
+	}
+}
+
+//------------------------------------------------------------------------------
+// Headings
+//------------------------------------------------------------------------------
+
+%headings {
+	font-family: var(--font-family-headings);
+	font-weight: 600;
+	line-height: 1.25;
+	margin: 2rem 0;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+h1, .H1 {
+	@extend %headings;
+	font-size: calc(var(--font-size) * 1.75);
+}
+
+h2, .H2 {
+	@extend %headings;
+	font-size: calc(var(--font-size) * 1.5);
+}
+
+h3, .H3 {
+	@extend %headings;
+	font-size: calc(var(--font-size) * 1.25);
+}
+
+h4, .H4 {
+	@extend %headings;
+	font-size: calc(var(--font-size) * 1.125);
+}
+
+h5, .H5,
+h6, .H6 {
+	@extend %headings;
+	font-size: var(--font-size);
+}
+
+//------------------------------------------------------------------------------
+// Stylished Heading
+//------------------------------------------------------------------------------
+
+%styled-headings {
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+%subtle-headings {
+	@extend %styled-headings;
+	font-size: var(--font-size);
+
+}
+
+%content-headings {
+	@extend %styled-headings;
+	font-size: var(--font-size-large);
+}
+
+//------------------------------------------------------------------------------
+// Text Area
+//------------------------------------------------------------------------------
+
+.TextArea-Narrow {
+	max-width: 800px;
+}
+
+.TextArea-Centered {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+//------------------------------------------------------------------------------
+// Text Align Helpers
+//------------------------------------------------------------------------------
+
+.Text-Left {
+	text-align: left;
+}
+
+.Text-Center {
+	text-align: center;
+}
+
+.Text-Right {
+	text-align: right;
+}
+
+//------------------------------------------------------------------------------
+// Text Size Helpers
+//------------------------------------------------------------------------------
+
+.Text-Small {
+	font-size: var(--font-size-small);
+}
+
+.Text-Large {
+	font-size: var(--font-size-large);
+}
+
+//------------------------------------------------------------------------------
+// Text Color Helpers
+//------------------------------------------------------------------------------
+
+.Text-Accent {
+	color: var(--color-accent-2);
+}
+
+//------------------------------------------------------------------------------
+// Text Misc Helpers
+//------------------------------------------------------------------------------
+
+.Text-Truncate {
+	@include truncate;
+}

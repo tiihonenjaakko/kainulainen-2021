@@ -1,0 +1,12 @@
+<div class="Drawers">
+	{Helper(file: 'helpers/drawers/search')}
+	{Helper(file: 'helpers/drawers/menu')}
+	{Helper(file: 'helpers/drawers/cart')}
+	{Helper(file: 'helpers/drawers/account')}
+	{Helper(file: 'helpers/drawers/gift-cards')}
+	{Helper(
+		case: 'isCheckout',
+		file: 'helpers/drawers/terms'
+	)}
+	<div class="DrawerClose"></div>
+</div>

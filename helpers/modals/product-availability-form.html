@@ -1,0 +1,38 @@
+<div class="ProductAvailabilityModalForm" data-product-url="{ProductUrl}">
+	<div class="Grid {ProductClass}">
+		<div class="Col-6-12 Col-Mobile-12-12 Hide-Mobile">
+			{ProductImage(link: 'false')}
+		</div>
+		<div class="Col-6-12 Col-Mobile-12-12">
+			<h2 class="ProductName">{ProductName}</h2>
+			{ProductAvailability}
+			<p class="ProductPrices ProductCardPrices">
+				{ProductComparePrice(
+					currencysymbol: 'true',
+					before: '
+						{ProductPrice(
+							currencysymbol: 'true',
+							before: '<span class="ProductDiscountPrice">',
+							after: '</span>'
+						)}
+						<span class="ProductComparePrice">',
+					after: '</span>',
+					or: '
+						{ProductPrice(
+							currencysymbol: 'true',
+							before: '<span class="ProductCurrentPrice">',
+							after: '</span>'
+						)}'
+				)}
+			</p>
+			{AvailabilityNotificationForm(
+				before:'
+					<div class="ProductAvailabilityNotification">
+						<h3 class="ProductAvailabilityNotificationTitle">{%AvailabilityNotificationIntroTitle}</h3>
+						<p>{%AvailabilityNotificationIntroText}</p>',
+			after: '
+					</div>'
+			)}
+		</div>
+	</div>
+</div>

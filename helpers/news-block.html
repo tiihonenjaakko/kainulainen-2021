@@ -1,0 +1,14 @@
+<div class="NewsItem">
+	<div class="NewsThumb">
+		<a href="{NewsUrl}">
+    {NewsImage(
+			imagesize: 'Normal',
+			or:	'<div class="NoImage"><img src="{LogoUrl(imageSize: 'List', link: 'false')}"></div>'
+		)}
+		</a>
+	</div>
+	<div class="NewsTitle">
+		<p>{NewsDate}</p>
+		<h5>{NewsSubject}</h5>
+	</div>
+</div>

@@ -1,0 +1,78 @@
+//------------------------------------------------------------------------------
+// GridList-Blocks ListProduct
+//------------------------------------------------------------------------------
+
+.CustomerPromises {
+	margin-top: 12rem;
+}
+
+.GridBlocks {
+	@include flexbox;
+	flex-flow: row wrap;
+	margin-left: -1rem;
+	margin-right: -1rem;
+}
+
+.GridBlock {
+	@include flexbox;
+	@include flex(1);
+	background: var(--color-base-1);
+	border: 1px solid var(--border-color);
+	border-radius: var(--border-radius-large);
+	box-shadow: 0 4px 12px var(--black-10);
+	margin: 1rem;
+	margin-top: -6rem;
+	position: relative;
+}
+
+.GridBlockLink {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
+.GridBlockIcon {
+	@include flexbox;
+	@include align-items(center);
+	color: var(--color-accent-1-lighter);
+	font-size: 5rem;
+	justify-content: center;
+	padding: 0;
+	width: 30%;
+
+	.fa {
+		margin: 0 !important;
+	}
+}
+
+.GridBlockInfoContainer {
+	@include flexbox;
+	flex-direction: column;
+	font-size: var(--font-size-small);
+	justify-content: flex-start;
+	padding: 2rem;
+	padding-left: 0;
+	width: 70%;
+
+	:last-child {
+		margin-bottom: 0;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		@extend h4;
+		margin-bottom: 1rem;
+	}
+}
+
+@media (max-width: $breakpoint-tablet) {
+	.GridBlock {
+		display: block;
+	}
+
+	.GridBlockInfoContainer,
+	.GridBlockIcon {
+		padding: 2rem;
+		text-align: center;
+		width: 100%;
+	}
+}

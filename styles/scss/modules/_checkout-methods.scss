@@ -1,0 +1,110 @@
+//------------------------------------------------------------------------------
+// Method Wrappers
+//------------------------------------------------------------------------------
+
+.ShippingMethodWrapper,
+.PaymentMethodWrapper {
+	background-color: var(--color-boxed-bg);
+	border: 1px solid var(--border-color);
+	margin-top: -1px;
+	padding: 5px 15px;
+
+	select {
+		width: 100%;
+	}
+
+	.FormHelp {
+		margin: 0;
+	}
+}
+
+.ShippingMethodWrapper:first-child,
+.PaymentMethodWrapper:first-child {
+	border-top-left-radius: var(--border-radius);
+	border-top-right-radius: var(--border-radius);
+}
+
+.ShippingMethodWrapper:last-child,
+.PaymentMethodWrapper:last-child {
+	border-bottom-left-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+}
+
+.ShippingMethodWrapper > label,
+.PaymentMethodWrapper > label {
+	margin-bottom: 0;
+}
+
+.DefineShippingMethod,
+.DefinePaymentMethod {
+	margin-top: 10px;
+
+	& > label {
+		font-weight: bold;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Methods
+//------------------------------------------------------------------------------
+
+.ShippingMethod,
+.PaymentMethod {
+	@include flexbox;
+	@include align-items(center);
+	padding: 5px 0;
+	position: relative;
+}
+
+.ShippingMethodLogo,
+.PaymentMethodLogo {
+	background-color: var(--color-image-bg);
+	border: 1px solid var(--border-color);
+	border-radius: var(--border-radius-medium);
+	margin: 0 5px 0 10px;
+	text-align: center;
+	width: 80px;
+}
+
+.ShippingMethodLogo img,
+.PaymentMethodLogo img  {
+	margin: auto;
+	max-height: 40px;
+	padding: 5px;
+}
+
+.ShippingMethodName,
+.PaymentMethodName {
+	@include flex(1);
+	margin: 0 5px;
+}
+
+.DisabledShippingMethod .ShippingMethod > *:not(.Notification),
+.DisabledPaymentMethod .PaymentMethod > *:not(.Notification) {
+	opacity: .5;
+}
+
+//------------------------------------------------------------------------------
+// Selected Method
+//------------------------------------------------------------------------------
+
+.SelectedMethod {
+	background-color: var(--color-base-1);
+	border-color: transparent;
+	border-radius: var(--border-radius);
+	box-shadow: 0 0 0 2px var(--border-color);
+	position: relative;
+	transition-duration: var(--transition-slow);
+}
+
+.JS [data-hide-details] {
+	.ShippingMethod ~ *,
+	.PaymentMethod ~ * {
+		display: none;
+	}
+
+	.SelectedMethod .ShippingMethod ~ *,
+	.SelectedMethod .PaymentMethod ~ * {
+		display:block;
+	}
+}

@@ -1,0 +1,684 @@
+//------------------------------------------------------------------------------
+// Banner
+//------------------------------------------------------------------------------
+
+.Banner {
+	--background-color: var(--color-banner-bg);
+	--color: var(--color-dark);
+	--aspect-ratio: 40%;
+	background-color: var(--background-color);
+	border-radius: var(--border-radius);
+	color: var(--color);
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.Banner a {
+	text-decoration: none;
+}
+
+.BannerCoverLink {
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 1;
+}
+
+.BannerBackgroundCover {
+	@include cover;
+	background: var(--black-25);
+	pointer-events: none;
+}
+
+.BannerText > * {
+	margin: 1.5rem 0;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Background Element
+//------------------------------------------------------------------------------
+
+.BannerBackgroundImage {
+	@include cover;
+	background-position: 50%;
+	background-size: cover;
+	overflow: hidden;
+	transition-duration: var(--transition-fast);
+}
+
+.BannerBackgroundImage.LazyLoad {
+	opacity: 0;
+}
+
+.LazyLoad.flickity-bg-lazyloaded {
+	opacity: 1;
+}
+
+//------------------------------------------------------------------------------
+// Body Banners
+//------------------------------------------------------------------------------
+
+.Banner-Body {
+	@extend %default-margin;
+	display: block;
+}
+
+.Banner-Body img {
+	width: 100%;
+}
+
+//------------------------------------------------------------------------------
+// Side Banners
+//------------------------------------------------------------------------------
+
+.Banner-Side {
+	--background-color: var(--color-boxed-bg);
+	@extend %default-margin;
+	display: inline-block;
+	position: relative;
+	width: 100%;
+}
+
+.Banner-Side .BannerImage {
+	display: block;
+	text-align: center;
+}
+
+.Banner-Side .BannerText {
+	padding: 1rem 1.5rem;
+}
+
+//------------------------------------------------------------------------------
+// Wide Banners
+//------------------------------------------------------------------------------
+
+.Banner-Wide {
+	--background-color: transparent;
+	background-color: transparent;
+	border-radius: var(--border-radius);
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	z-index: 1;
+}
+
+.Banner-Wide .AspectRatio {
+	background-color: var(--color-banner-bg);
+	@include flexbox;
+	@include align-items(center);
+}
+
+.Banner-Wide .AspectRatio:before {
+	padding-top: var(--aspect-ratio);
+}
+
+.Banner-Wide .BannerContainer {
+	@extend .Container;
+	position: relative;
+	width: 100%;
+}
+
+.Banner-Wide .BannerDesktopContent {
+	--color: var(--color-light);
+	display: inline-block;
+	color: var(--color);
+	max-width: 640px;
+}
+
+.Banner-Wide .BannerMobileContent {
+	background-color: var(--color-boxed-bg);
+	padding: 3rem 1.5rem;
+	text-align: center;
+}
+
+.Banners-Wide .flickity-page-dots {
+	bottom: 2rem;
+	z-index: 2;
+}
+
+.Banners-Wide .flickity-page-dots .dot {
+	background-color: var(--color-light);
+}
+
+.Banners-Wide-Contained {
+	@extend .Container;
+}
+
+.Banners-Wide-Contained .flickity-viewport {
+	border-radius: var(--border-radius);
+	overflow: hidden;
+	z-index: 1;
+
+	.Banner-Wide {
+		border-radius: 0;
+	}
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+	.Banners-Wide .flickity-page-dots {
+		bottom: auto;
+		margin-top: 1rem;
+		position: relative;
+	}
+
+	.Banners-Wide .flickity-page-dots .dot {
+		background-color: var(--color-dark);
+	}
+
+	.Banners-Wide-Contained {
+		padding: 0;
+
+		.Banner-Wide {
+			border-radius: 0;
+		}
+	}
+
+	.Banners-Wide-Contained .flickity-viewport {
+		border-radius: 0;
+	}
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+	.Banners-Wide .Banner {
+		--aspect-ratio: 100%;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Banner Wide Text Styles
+//------------------------------------------------------------------------------
+
+.Banner-Wide .BannerText {
+	font-weight: 400;
+}
+
+.Banner-Wide .BannerText > h2 {
+	font-weight: 500;
+}
+
+.Banner-Wide .BannerDesktopContent .BannerText {
+	font-family: var(--font-family-headings);
+	font-weight: 600;
+	letter-spacing: 1.05px;
+	line-height: 4.3rem;
+	margin-bottom: 3rem;
+}
+
+.TopBanner .BannerText {
+	font-size: 3.5rem;
+}
+
+@media (max-width: $breakpoint-mobile) {
+	.TopBanner .BannerText {
+		font-size: 2.5rem;
+	}
+}
+
+.Banner-Wide .BannerText > :last-child > a {
+	@extend .Button;
+	@extend .Button-Primary;
+	border: 0;
+	box-shadow: 0 2px 4px var(--black-25);
+	margin-left: 1rem;
+	margin-right: 1rem;
+	text-shadow: none;
+}
+
+//------------------------------------------------------------------------------
+// Feature Banners
+//------------------------------------------------------------------------------
+
+.Banners-Featured .FeatureItem {
+	padding: calc(var(--grid-list-gutter) / 2);
+	width: 33.33%;
+	.BannerImageContainer {
+		padding: 2rem 5rem 0;
+	}
+}
+
+.Banners-Featured .NewsItem {
+	padding: calc(var(--grid-list-gutter) / 2);
+	width: 33.33%;
+}
+
+.Banners-Featured .BrandBanner {
+	padding: calc(var(--grid-list-gutter) / 2);
+
+	.BannerImageContainer {
+	}
+}
+
+.GridList .BrandBanner {
+	--item-width: 20%;
+	--item-offset: 5%;
+	@include flex(0 0 var(--item-width));
+	padding: calc(var(--grid-list-gutter) / 2);
+	position: relative;
+	width: var(--item-width);
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+	.GridList .BrandBanner {
+		--item-width: 24%;
+		--item-offset: 5%;
+		@include flex(0 0 var(--item-width));
+		padding: calc(var(--grid-list-gutter) / 2);
+		position: relative;
+		width: var(--item-width);
+	}
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+	.GridList .BrandBanner {
+		--item-width: 45%;
+		--item-offset: 5%;
+		@include flex(0 0 var(--item-width));
+		padding: calc(var(--grid-list-gutter) / 2);
+		position: relative;
+		width: var(--item-width);
+	}
+}
+
+.BrandBanner .Banner-Feature {
+	background: linear-gradient(54deg, #ddd 50%, #ccc 50%);
+	padding-bottom: 0;
+	img {
+		max-height: 10rem;
+		padding: 2rem 5rem;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	.Banner {
+		background: 0 0;
+	}
+	.BrandImageCover {
+		background: #fff;
+		height: 10rem;
+    text-align: center;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+	.BrandBanner .Banner-Feature {
+		img {
+			padding: 2rem;
+		}
+	}
+}
+
+.Banners-Featured:not([data-slider]) {
+	@include flexbox;
+	@include flex-wrap;
+}
+
+.Banners-Featured:not([data-slider]) .FeatureItem {
+	@include flex(0 1 20%);
+}
+
+.Banners-Featured:not([data-slider]) .NewsItem {
+	@include flex(0 1 33.33%);
+}
+
+.Banners-Featured:not([data-slider]) .BrandBanner {
+	@include flex(0 1 20%);
+}
+
+.CategoryBlock .Banners-Featured {
+	margin: calc(var(--grid-list-gutter)/2*-1);
+}
+
+.Banner-Feature {
+	--aspect-ratio: 100%;
+	--background-color: #fff;
+	border-radius: var(--border-radius);
+	padding-bottom: 6.5rem;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	z-index: 1;
+}
+
+.Banner-Featured-News {
+	padding-bottom: 0;
+}
+
+.Banner-Feature .BannerBackgroundCover {
+	opacity: 0;
+	transition-duration: var(--transition-slow);
+}
+
+.Banner-Feature .AspectRatio {
+	@include flexbox;
+	@include align-items(center);
+}
+
+.Banner-Feature .AspectRatio:before {
+	padding-top: var(--aspect-ratio);
+}
+
+.Banner-Feature .BannerContent {
+	@include align-items(center);
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	@include flexbox;
+	justify-content: center;
+	padding: 2rem;
+	pointer-events: none;
+	text-align: center;
+}
+
+.Banner-Feature .BannerText{
+	position: relative;
+	pointer-events: auto;
+	z-index: 1;
+}
+
+.BrandBanner .Banner-Feature {
+	--aspect-ratio: 136%;
+}
+
+@media screen and (max-width: $breakpoint-mobile-wide) {
+	.Banners-Featured .FeatureItem {
+		width: 90%;
+	}
+
+	.Banners-Featured .FeatureItem:only-child {
+		width: 100%;
+	}
+
+	.Banners-Featured:not([data-slider]) {
+		display: block;
+	}
+
+	.Banners-Featured:not([data-slider]) .FeatureItem {
+		width: 100%;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Banner Featured Text Styles
+//------------------------------------------------------------------------------
+
+.Banner-Feature .BannerText {
+	color: var(--color-dark);
+	font-size: 2rem;
+	font-weight: 400;
+	line-height: 2.4rem;
+}
+
+.Banner-Feature .BannerText > h2 {
+	font-weight: 500;
+}
+
+.Banner-Feature .BannerText > h2 {
+	font-size: 48px;
+	font-weight: 500;
+}
+
+.Banner-Feature .BannerText > :last-child > a {
+	@extend .Button;
+	@extend .Button-Primary;
+	border: 0;
+	box-shadow: none;
+	height: auto;
+	text-shadow: none;
+}
+
+//------------------------------------------------------------------------------
+// AdBanner
+//------------------------------------------------------------------------------
+
+.AdBanner {
+	@include flexbox;
+	@include align-items(center);
+	background-color: var(--color-base-2);
+	border-radius: var(--border-radius);
+	margin: 0;
+	overflow: hidden;
+}
+
+.AdColumn {
+	@include flex(1);
+}
+
+.AdImagesColumn {
+	@include flex(1.5);
+}
+
+.AdImages {
+	@include flexbox;
+	@include flex-wrap;
+	align-items: center;
+	margin: 3px;
+}
+
+.AdImage {
+	@include flex(1 1 calc(50% - 6px));
+	border-radius: var(--border-radius-large);
+	margin: 3px;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.AdImage .AspectRatio:before {
+	padding-top: 75%;
+}
+
+.AdText {
+	padding: 3rem;
+}
+
+.AdText :last-child a {
+	@extend .Button;
+}
+
+@media screen and (max-width: $breakpoint-mobile-wide) {
+	.AdBanner {
+		display: block;
+	}
+}
+
+//------------------------------------------------------------------------------
+// FiftyFifty banners
+//------------------------------------------------------------------------------
+
+.FiftyFiftyBanners {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	font-size: 1.7rem;
+	line-height: 2.5rem;
+	padding: 7rem 0 6rem;
+	margin: 0 auto;
+	max-width: 112rem;
+	p {
+		letter-spacing: 1.36px;
+		margin: 0;
+	}
+	strong {
+		font-weight: bold;
+	}
+	.FiftyFifty {
+		overflow: hidden;
+		width: 50%;
+	}
+	.FiftyFiftyImage {
+		img {
+			height: 100%;
+			max-height: 54rem;
+			max-width: inherit;
+		}
+	}
+	.FiftyFiftyText {
+		padding: 3rem 0 0 7rem;
+		.Button-White {
+			@include icon-after($fa-var-minus);
+			content: '';
+			font-size: 1.4rem;
+			letter-spacing: 1.12px;
+			line-height: 1.8rem;
+			margin-top: 4.5rem;
+		}
+		.Button-White::after {
+			font-size: 1.7rem;
+			line-height: 1.5rem;
+			position: relative;
+			top: 2px;
+		}
+		h1, h2, h3 {
+			font-size: 2.5rem;
+			font-weight: 600;
+			letter-spacing: 0.75px;
+			line-height: 3rem;
+		}
+	}
+}
+
+@media (max-width: $breakpoint-mobile-wide) {
+	.FiftyFiftyBanners {
+		display: block;
+	}
+	.FiftyFifty {
+		width: 100% !important;
+	}
+	.FiftyFiftyText {
+		padding: 2rem 0 !important;
+	}
+}
+
+//------------------------------------------------------------------------------
+// ShortBanners
+//------------------------------------------------------------------------------
+
+.ShortBanner .Banner {
+	--aspect-ratio: 28%;
+}
+
+.NewsLetterBanner {
+	padding: 6rem 0 8rem;
+	::placeholder {
+		color: #000;
+	}
+	button {
+		letter-spacing: 1.12px;
+		margin-left: -7.5rem;
+		position: relative;
+	}
+	h1 {
+		font-weight: 600;
+		letter-spacing: 0.75px;
+		line-height: 3.3rem;
+		margin-bottom: 3rem;
+	}
+	h2, p {
+		display: none;
+	}
+	input {
+		border: 1px solid var(--color-accent-1);
+    border-radius: 2rem;
+    background: var(--color-accent-1);
+		letter-spacing: 1.12px;
+		line-height: 1.8rem;
+    outline: 0;
+		padding-left: 2rem;
+    width: 38rem;
+	}
+	label[for=SubscribeEmail] {
+		display: none;
+	}
+	.Banner-Wide .BannerDesktopContent {
+		max-width: 50rem;
+	}
+}
+
+@media (max-width: $breakpoint-tablet) {
+	.NewsLetterBanner {
+		button {
+			margin-left: -3.5rem;
+		}
+		input {
+			font-weight: 600;
+			display: initial;
+			width: inherit;
+		}
+	}
+}
+
+@media (max-width: $breakpoint-mobile) {
+	.NewsLetterBanner {
+
+	}
+}
+
+.NewsLetterBanner button {
+	@include icon-after($fa-var-minus);
+	content: '';
+}
+
+.NewsLetterBanner button::after {
+	font-size: 1.7rem;
+	line-height: 1.5rem;
+	position: relative;
+	top: 2px;
+}
+
+.StoryBanner {
+	padding: 6rem 0 8rem;
+	p {
+		font-size: 2.5rem;
+		font-weight: 600;
+		letter-spacing: 0.75px;
+		line-height: 3.3rem;
+	}
+	.Banner-Wide .BannerDesktopContent {
+		max-width: 55rem;
+	}
+}
+
+@media (max-width: $breakpoint-mobile) {
+	.StoryBanner p {
+	}
+	.StoryBanner .Banner {
+		--aspect-ratio: 120%;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Promise banners
+//------------------------------------------------------------------------------
+
+.PromiseBanners {
+	li {
+		@include icon-before($fa-var-check);
+		display: flex;
+		list-style: none;
+		p {
+			margin-bottom: 1rem;
+		}
+	}
+}
+
+.PromiseBanners li:before {
+	color: #4F9B42;
+	margin-right: 1rem;
+	margin-top: 0.2rem;
+}

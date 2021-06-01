@@ -1,0 +1,277 @@
+{Helper(file: 'helpers/header')}
+{Banners(
+	name: 'frontpage',
+	before: '
+			<div class="Banners Banners-Wide" data-slider="banner-wide">',
+	after: '
+			</div>',
+	helper: '{{
+		<div class="Banner Banner-Wide TopBanner">
+			<div class="AspectRatio">
+				{BannerUrl(
+					before: '<a class="BannerCoverLink" href="',
+					after: '" {BannerLinkData}></a>'
+				)}
+				<div class="BannerBackgroundImage LazyLoad" data-flickity-bg-lazyload="{BannerImageURL(imagesize: 'banner-wide')}"></div>
+				{BannerText(
+					before: '
+						<div class="BannerContainer">
+							<div class="BannerContent BannerDesktopContent">
+								<div class="BannerText">',
+					after: '
+								</div>
+								<a href="{BannerUrl}"><button class="Button">Tutustu valikoimaan <i class="fa fa-minus"></i></button></a>
+							</div>
+						</div>'
+				)}
+			</div>
+		</div>
+	}}'
+)}
+<div class="SiteContent-Homepage">
+	{Banners(
+		name: 'featured',
+		limit: '6',
+		before: '
+			<div class="ContainerSection ContainerSection-Grey CategoryBlock">
+				<div class="Banners Banners-Featured">',
+		after: '
+				</div>
+			</div>',
+		helper: '{{
+			<div class="FeatureItem">
+				<div class="Banner Banner-Feature">
+					<div class="BannerBackgroundCover"></div>
+					{BannerUrl(
+						before: '<a class="BannerCoverLink" href="',
+						after: '" {BannerLinkData}></a>'
+					)}
+					<div class="BannerImageContainer">
+						<div class="AspectRatio">
+							<div class="BannerBackgroundImage" style="background-image: url({BannerImageURL(width: '625')})"></div>
+						</div>
+					</div>
+					{BannerName(
+						before: '
+							<div class="BannerContent">
+								<div class="BannerText">',
+						after: '
+								</div>
+							</div>'
+					)}
+				</div>
+			</div>
+		}}'
+	)}
+	{Banner(
+		name:'company-banner',
+		before: '
+			<div class="ContainerSection">
+				<div class="FiftyFiftyBanners">',
+		after: '
+				</div>
+			</div>',
+		helper: '{{
+			{BannerImage(
+				before: '<div class="FiftyFifty FiftyFiftyImage">',
+				after: '</div>'
+			)}
+			{BannerText(
+				before: '<div class="FiftyFifty FiftyFiftyText">',
+				after: '<a href="/page/2"><button class="Button-White">{%ContactUs}</button></a></div>'
+			)}
+		}}'
+	)}
+	{NewProducts(
+		limit: '18',
+		type: 'normal',
+		classes: 'ListProduct-Compact',
+		before: '
+			<div class="ContainerSection">
+				<div class="Flex CategoryHeader">
+					<div class="FlexItem FlexItem-Grow">
+						<h2 class="ContentTitle">
+							<a href="{CategoryUrl}" class="CategoryTitle">{%NewProducts}</a>
+						</h2>
+					</div>
+					<div class="FlexItem">
+						<a href="/category/9" class="CategoryHeaderLink">{Text(code: 'SeeAll', or: '{%CheckoutOrderContent}')}</a>
+					</div>
+				</div>
+				<div class="List ProductList">
+					<div class="GridList GridListItemSmall" data-slider="grid-list">',
+		after: '
+					</div>
+				</div>
+			</div>',
+		helper: 'helpers/list-product'
+	)}
+	{Banner(
+		name: 'newsletter-banner',
+		before: '
+				<div class="Banners Banners-Wide ShortBanner NewsLetterBanner" data-slider="banner-wide">',
+		after: '
+				</div>',
+		helper: '{{
+			<div class="Banner Banner-Wide">
+				<div class="AspectRatio">
+					{BannerUrl(
+						before: '<a class="BannerCoverLink" href="',
+						after: '" {BannerLinkData}></a>'
+					)}
+					<div class="BannerBackgroundImage LazyLoad" data-flickity-bg-lazyload="{BannerImageURL(imagesize: 'banner-wide')}"></div>
+					{BannerText(
+						before: '
+							<div class="BannerContainer Hide-Tablet">
+								<div class="BannerContent BannerDesktopContent">
+									<div class="BannerText">',
+						after: '
+									</div>
+								</div>
+							</div>'
+					)}
+				</div>
+				{BannerText(
+					before: '
+						<div class="BannerContent BannerMobileContent Hide-Desktop">
+							<div class="BannerText">',
+					after: '
+							</div>
+						</div>'
+				)}
+			</div>
+		}}'
+	)}
+	{DiscountProducts(
+		limit: '18',
+		type: 'normal',
+		classes: 'ListProduct-Compact',
+		before: '
+			<div class="ContainerSection">
+				<div class="Flex CategoryHeader">
+					<div class="FlexItem FlexItem-Grow">
+						<h2 class="ContentTitle">
+							<a href="{CategoryUrl}" class="CategoryTitle">{%OfferProducts}</a>
+						</h2>
+					</div>
+					<div class="FlexItem">
+						<a href="/category/14" class="CategoryHeaderLink">{Text(code: 'SeeAll', or: '{%CheckoutOrderContent}')}</a>
+					</div>
+				</div>
+				<div class="List ProductList">
+					<div class="GridList GridListItemSmall" data-slider="grid-list">',
+		after: '
+					</div>
+				</div>
+			</div>',
+		helper: 'helpers/list-product'
+	)}
+	{Banner(
+		name: 'story-banner',
+		before: '
+				<div class="Banners Banners-Wide ShortBanner StoryBanner" data-slider="banner-wide">',
+		after: '
+				</div>',
+		helper: '{{
+			<div class="Banner Banner-Wide">
+				<div class="AspectRatio">
+					{BannerUrl(
+						before: '<a class="BannerCoverLink" href="',
+						after: '" {BannerLinkData}></a>'
+					)}
+					<div class="BannerBackgroundImage LazyLoad" data-flickity-bg-lazyload="{BannerImageURL(imagesize: 'banner-wide')}"></div>
+					{BannerText(
+						before: '
+							<div class="BannerContainer">
+								<div class="BannerContent BannerDesktopContent">
+									<div class="BannerText">',
+						after: '
+									</div>
+									<a href="{BannerUrl}"><button class="Button">Tarinamme <i class="fa fa-minus"></i></button></a>
+								</div>
+							</div>'
+					)}
+				</div>
+			</div>
+		}}'
+	)}
+	{Banners(
+		name: 'brand-banners',
+		limit: '6',
+		before: '
+			<div class="ContainerSection">
+				<div class="Flex CategoryHeader">
+					<div class="FlexItem FlexItem-Grow">
+						<h2 class="ContentTitle">
+							<a href="{CategoryUrl}" class="CategoryTitle">Brändit, joita rakastamme</a>
+						</h2>
+					</div>
+					<div class="FlexItem">
+						<a href="/category/7" class="CategoryHeaderLink">{Text(code: 'SeeAll', or: '{%CheckoutOrderContent}')}</a>
+					</div>
+				</div>
+				<div class="Banners Banners-Featured GridList" data-slider="grid-list">',
+		after: '
+				</div>
+			</div>',
+		helper: '{{
+			<div class="BrandBanner">
+				<div class="Banner Banner-Feature">
+					<div class="BannerBackgroundCover"></div>
+					{BannerUrl(
+						before: '<a class="BannerCoverLink" href="',
+						after: '" {BannerLinkData}></a>'
+					)}
+					<div class="BannerImageContainer">
+						<div class="AspectRatio">
+							{BannerImage(
+								before: '<div class="BrandImageCover">',
+								after: '</div>'
+							)}
+						</div>
+					</div>
+				</div>
+			</div>
+		}}'
+	)}
+	{News(
+		limit: '6',
+		before: '
+			<div class="ContainerSection Blog">
+				<div class="Flex CategoryHeader">
+					<div class="FlexItem FlexItem-Grow">
+						<h2 class="ContentTitle">
+							<a href="{CategoryUrl}" class="CategoryTitle">Blogi</a>
+						</h2>
+					</div>
+					<div class="FlexItem">
+						<a href="{LinkUrl(type: 'category', id: '13')}" class="CategoryHeaderLink">{Text(code: 'SeeAll', or: '{%CheckoutOrderContent}')}</a>
+					</div>
+				</div>
+				<div class="Banners Banners-Featured GridList NewsList" data-slider="grid-list">',
+		after: '
+				</div>
+			</div>',
+		helper: '{{
+			<div class="NewsItem">
+				<div class="Banner Banner-Feature Banner-Featured-News">
+					<div class="BannerBackgroundCover"></div>
+					{NewsUrl(
+						before: '<a class="BannerCoverLink" href="',
+						after: '" {BannerLinkData}></a>'
+					)}
+					<div class="BannerImageContainer">
+						<div class="AspectRatio">
+							<div class="BannerBackgroundImage" style="background-image: url({NewsImageURL(width: '625')})"></div>
+						</div>
+					</div>
+				</div>
+				<div class="NewsTitle">
+					<p>{NewsDate}</p>
+					<h5>{NewsSubject}</h5>
+				</div>
+			</div>
+		}}'
+	)}
+</div>
+{Helper(file: 'helpers/footer')}

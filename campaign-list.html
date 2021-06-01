@@ -1,0 +1,56 @@
+{Helper(file: 'helpers/header')}
+{CampaignImageUrl(
+	imagesize: 'banner-wide',
+	before: '
+		<div class="Banners Banners-Wide Banners-Wide-Contained">
+			<div class="Banner Banner-Wide">
+				<div class="AspectRatio">
+					{CampaignImageLinkURL(
+						before: '<a class="BannerCoverLink" href="',
+						after: '"></a>'
+					)}
+					<div class="BannerBackgroundImage" style="background-image: url({CampaignImageUrl(imagesize: 'banner-wide')})" data-src="',
+	after: '"></div>
+				</div>
+			</div>
+		</div>'
+)}
+<div class="SiteContent">
+	<div class="Container">
+		<div class="Grid">
+			<div class="Col-12-12">
+				<div class="ContentSection">
+					<h1>{PageTitle}</h1>
+					{CampaignDescription}
+					<div class="Flex Flex-Collapse">
+						<div class="FlexItem">
+							{PaginationStatus}
+						</div>
+						{Helper(
+							file: 'helpers/pagination-form',
+							before: '
+								<div class="FlexSpacer"></div>
+								<div class="FlexItem">',
+							after: '</div>'
+						)}
+					</div>
+					{CampaignProducts(
+						limit: '40|80',
+						pagination: 'true',
+						type: 'normal',
+						before: '
+							<div class="List ProductList">
+								<div class="GridList">',
+						after: '
+								</div>
+							</div>
+							{Helper(file: 'helpers/pagination')}',
+						helper: 'helpers/list-product',
+						or: '<div class="Notification">0 {%Products}</div>'
+					)}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{Helper(file: 'helpers/footer')}

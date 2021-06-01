@@ -1,0 +1,172 @@
+//------------------------------------------------------------------------------
+// Site
+//------------------------------------------------------------------------------
+
+.SiteWrapper {
+	margin: 0 auto;
+	//max-width: 1920px;
+	overflow: hidden;
+}
+
+.SiteUtilities {
+	background-color: #000;
+	color: #fff;
+	padding: 1rem 0;
+	a {
+		color: #fff;
+		font-size: 1.4rem;
+		letter-spacing: 1.12px;
+		line-height: 1.8rem;
+		text-decoration: none;
+	}
+	i {
+		margin-right: 1rem !important;
+	}
+	p {
+		font-size: 1.7rem;
+		letter-spacing: 1.36px;
+		line-height: 2.1rem;
+	}
+}
+
+.SiteHeader {
+	--background-color: var(--color-header-bg);
+	--border-color: var(--color-footer-border);
+	background-color: var(--background-color);
+}
+
+.SiteBody {
+	--background-color: var(--color-body-bg);
+	--border-color: var(--color-body-border);
+	background-color: var(--background-color);
+}
+
+.SiteContent {
+	padding: 5rem 0 var(--large-margin);
+}
+
+.SiteContent-Homepage {
+	padding: 0 0 8rem;
+}
+
+.SiteContent-ProductCard {
+	padding: 5rem 0 var(--large-margin);
+}
+
+.SiteContent-ProductList {
+	padding: 5rem 0 var(--large-margin);
+}
+
+.SiteContent .ContainerSection:last-child {
+	margin-bottom: calc(var(--large-margin) * -1);
+	padding-bottom: var(--large-margin);
+}
+
+.SiteFooter {
+	--background-color: var(--color-footer-bg);
+	--border-color: var(--color-footer-border);
+	background-color: var(--background-color);
+	border-top: 1px solid var(--color-border-1);
+}
+
+//------------------------------------------------------------------------------
+// Site Column
+//------------------------------------------------------------------------------
+
+.SiteColumns {
+	@include flexbox;
+	@include align-items(stretch);
+}
+
+.SiteColumns .SiteColumn {
+	background-color: var(--color-base-1);
+	padding: 5rem var(--container-page-margin);
+	padding-right: 0;
+	position: relative;
+	width: 410px;
+	z-index: 2;
+}
+
+.SiteColumns .SiteColumn:empty,
+.Checkout .SiteColumn {
+	display: none;
+}
+
+.SiteColumns .SiteMainColumn {
+	flex: 1;
+}
+
+@media screen and (min-width: $breakpoint-tablet + 1) {
+	.SiteColumns .SiteMainColumn {
+		.ContainerSection,
+		.Container {
+			//padding-left: calc(var(--container-page-margin) / 2);
+		}
+	}
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+	.SiteColumns {
+		display: block;
+	}
+
+	.SiteColumns .SiteColumn  {
+		display: none !important;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Layout Columns
+//------------------------------------------------------------------------------
+
+.AsideColumn {
+	width: 300px;
+	.InfoNavigation .Current a {
+		text-decoration: underline;
+	}
+}
+
+.ProductAsideColumn {
+	width: 660px;
+	strong {
+		font-weight: 600;
+		letter-spacing: 1.12px;
+	}
+}
+
+.ProductMainColumn {
+	max-width: 680px;
+	min-width: 300px;
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+	.Flex-Layout {
+		display: block;
+	}
+
+	.MainColumn,
+	.AsideColumn {
+		width: 100%;
+	}
+
+	.ProductAsideColumn {
+		width: 100%;
+	}
+
+	.ProductMainColumn {
+		min-width: 0;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Header Icons
+//------------------------------------------------------------------------------
+
+.SearchName {
+	@extend .CartTotalVisual;
+	margin-right: .5rem;
+}
+
+.IconButtonSearch {
+	@extend .IconButtonCart;
+}

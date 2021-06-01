@@ -1,0 +1,90 @@
+//------------------------------------------------------------------------------
+// Magnific Popup
+//------------------------------------------------------------------------------
+
+$mfp-z-index: 10001;
+
+.mfp-bg {
+	background-color: #000;
+	opacity: .75;
+	z-index: $mfp-z-index;
+}
+
+.mfp-wrap {
+	z-index: $mfp-z-index + 1;
+}
+
+.mfp-preloader {
+	z-index: $mfp-z-index + 3;
+}
+
+.mfp-content {
+	z-index: $mfp-z-index + 4;
+}
+
+button.mfp-close,
+button.mfp-arrow {
+	z-index: $mfp-z-index + 5;
+}
+
+//------------------------------------------------------------------------------
+// Magnific Popup Content
+//------------------------------------------------------------------------------
+
+.mfp-ajax-content {
+	background-color: var(--color-body-bg);
+	border-radius: var(--border-radius);
+	box-shadow: 0 8px 22px var(--black-75);
+	margin: 60px auto;
+	max-width: 860px;
+	padding: 60px 40px;
+	position: relative;
+}
+
+// content at start
+.mfp-wrap .mfp-content {
+	opacity: 0;
+	transform: scale(.95);
+	transition-duration: var(--transition-slow);
+}
+
+// content animate it
+.mfp-wrap.mfp-ready .mfp-content {
+	opacity: 1;
+	transform: scale(1);
+}
+
+@media screen and (max-width: $breakpoint-mobile-wide) {
+	.mfp-ajax-content {
+		max-width: 640px;
+		padding: 60px 15px;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Modal Close
+//------------------------------------------------------------------------------
+
+.mfp-wrap .mfp-close {
+	font-family: var(--font-body);
+	font-size: 0;
+	margin-left: auto;
+	opacity: 1;
+	padding: 0 15px;
+	width: auto;
+
+	&:before,
+	&:after {
+		padding: 5px;
+	}
+
+	&:before {
+		content:attr(title);
+		font-size: var(--font-size-small);
+	}
+
+	&:after {
+		@include icon($fa-var-times);
+		font-size: var(--font-size-large);
+	}
+}

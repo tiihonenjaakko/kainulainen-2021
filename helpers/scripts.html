@@ -1,0 +1,45 @@
+<script type="text/javascript">
+	window.MCF = window.MCF || {};
+	window.MCF.locale = '{CurrentLanguageCode}';
+	window.MCF.dictionary = window.MCF.dictionary || {};
+	window.MCF.dictionary.choose = '{%Choose}';
+	window.MCF.dictionary.save = '{%Save}';
+</script>
+<script type="text/javascript">
+	window.MCF.dictionary.currentCartTotal = '{CartSubTotal(html: false, currencysymbol: false, decimals: 2)}';
+	window.MCF.dictionary.targetCartTotal = '{\%configTargetCartTotalMT}';
+</script>
+{MinifyJS(
+	mode: 'production',
+	support_scripts: 'true',
+	files: '
+		vendor/jquery/jquery.js|
+		vendor/jquery.finger/dist/jquery.finger.js|
+		vendor/hc-sticky/hc-sticky.js|
+		vendor/magnific-popup/dist/jquery.magnific-popup.js|
+		vendor/flickity/flickity.pkgd.min.js|
+		vendor/flickity/bg-lazyload.js|
+		scripts/locales.js|
+		scripts/theme.js|
+		scripts/plugins/cart.js|
+		scripts/plugins/checkout.js|
+		scripts/plugins/drawers.js|
+		scripts/plugins/filters.js|
+		scripts/plugins/free-shipping-progress.js|
+		scripts/plugins/images.js|
+		scripts/plugins/interface.js|
+		scripts/plugins/klarna-checkout.js|
+		scripts/plugins/loaders.js|
+		scripts/plugins/modals.js|
+		scripts/plugins/navigations.js|
+		scripts/plugins/notifications.js|
+		scripts/plugins/search.js|
+		scripts/plugins/selected-method.js|
+		scripts/plugins/sliders.js|
+		scripts/plugins/spinners.js|
+		scripts/plugins/tabs.js|
+		scripts/plugins/variations.js|
+		scripts/custom.js'
+)}
+<script type="text/javascript" src="/assets/defaults/vendor/magiczoomplus/magiczoomplus.js"></script>
+{Text(code: 'cfgCustomJS')}

@@ -1,0 +1,33 @@
+<div class="Drawer" data-drawer="search" data-drawer-side="right">
+	<div class="DrawerHeader">
+		<h3 class="DrawerTitle">{%ProductSearch}</h3>
+	</div>
+	<div class="DrawerSection">
+		<div class="CompactForm">
+			{Search(
+				id: 'MobileSearch',
+				before: '
+					<div id="DrawerLiveSearch">',
+				after: '
+						<div class="LiveSearchResults" id="DrawerLiveSearchResults">
+						</div>
+					</div>'
+			)}
+		</div>
+	</div>
+	{SearchPopularTerms(
+		before: '
+			<div class="DrawerNavigation">
+				<h3 class="LiveSearchTitle">{%SearchPopularTerms}</h3>
+				<ul class="SearchPopularTerms">',
+		after: '
+				</ul>
+			</div>',
+		limit: '5',
+		helper: '{{
+			<li>
+				<a href="{SearchUrl}">{SearchKeyword}</a>
+			</li>
+		}}'
+	)}
+</div>

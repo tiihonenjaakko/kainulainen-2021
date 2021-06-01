@@ -1,0 +1,51 @@
+//------------------------------------------------------------------------------
+// Category
+//------------------------------------------------------------------------------
+
+.CategoryName {
+	font-size: 3.5rem;
+	letter-spacing: 1.05px;
+	line-height: 4.3rem;
+}
+
+.CategoryDesc {
+	font-size: 1.4rem;
+	letter-spacing: 1.12px;
+	line-height: 2.2rem;
+	max-width: 62rem;
+	a {
+		color: #666;
+	}
+}
+
+.CategoryPagination {
+	margin-top: 6rem;
+}
+
+.CategoryPreview .flickity-prev-next-button {
+	display: none;
+}
+
+.CategoryHeader a {
+	font-size: 2.5rem;
+	font-weight: 600;
+	line-height: 3rem;
+	letter-spacing: 0.75px;
+	text-decoration: none;
+	text-transform: capitalize;
+}
+
+.CategoryHeaderLink {
+	font-size: 1.4rem !important;
+	font-weight: 600 !important;
+	letter-spacing: 1.12px !important;
+	line-height: 1.8rem !important;
+	@include icon-after($fa-var-minus);
+}
+
+.PaginationStatus {
+	font-size: 1.4rem;
+	font-weight: 600;
+	letter-spacing: 1.12px;
+	line-height: 1.8rem;
+}

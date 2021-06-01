@@ -1,0 +1,70 @@
+//------------------------------------------------------------------------------
+// Pagination
+//------------------------------------------------------------------------------
+
+.Pagination {
+	margin-top: var(--large-margin);
+}
+
+.Pagination a {
+	@include cover;
+	@include flexbox;
+	@include align-items(center);
+	justify-content: center;
+	text-decoration: none;
+}
+
+.Pagination ul {
+	@include flexbox;
+	justify-content: center;
+	list-style: none;
+	margin-bottom: 0;
+}
+
+.Pagination li {
+	@include flexbox;
+	@include align-items(center);
+	background-color: var(--color-body-bg);
+	border: 1px solid var(--border-color);
+	justify-content: center;
+	margin-left: -1px;
+	min-width: 50px;
+	padding: .75rem 1rem;
+	position: relative;
+	text-align: center;
+	transition-duration: var(--transition-fast);
+
+	&:hover {
+		background-color: var(--color-base-2);
+	}
+}
+
+.Pagination li:first-child {
+	border-bottom-left-radius: var(--border-radius);
+	border-top-left-radius: var(--border-radius);
+	margin-left: 0;
+}
+
+.Pagination li:last-child {
+	border-bottom-right-radius: var(--border-radius);
+	border-top-right-radius: var(--border-radius);
+}
+
+.Pagination .CurrentPage {
+	background-color: var(--color-base-2);
+	color: var(--color-accent-2);
+}
+
+.Pagination .DisabledPageLink {
+	opacity: 0.5;
+}
+
+.Pagination .PreviousPageLink > a,
+.Pagination .PreviousPageLink.DisabledPageLink {
+	@include icon-replace($fa-var-angle-left);
+}
+
+.Pagination .NextPageLink > a,
+.Pagination .NextPageLink.DisabledPageLink {
+	@include icon-replace($fa-var-angle-right);
+}

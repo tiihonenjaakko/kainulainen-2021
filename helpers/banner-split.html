@@ -1,0 +1,18 @@
+<div class="AdBanner {BannerClass} Flex Flex-Collapse">
+		<div class="AdColumn">
+			<div class="AdImage">
+				<div class="AspectRatio">
+					{BannerUrl(
+						before: '<a class="BannerCoverLink" href="',
+						after: '" {BannerLinkData}></a>'
+					)}
+					<div class="BannerBackgroundImage" style="background-image: url({BannerImageURL(width: '1330')})"></div>
+				</div>
+			</div>
+		</div>
+		<div class="AdColumn">
+			<div class="AdText">
+				{BannerText}
+			</div>
+		</div>
+</div>

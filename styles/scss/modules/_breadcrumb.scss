@@ -1,0 +1,52 @@
+//------------------------------------------------------------------------------
+// Breadcrumb
+//------------------------------------------------------------------------------
+
+.Breadcrumb {
+	@extend %default-margin;
+	@include truncate;
+}
+
+.Breadcrumb a {
+	text-decoration: none;
+}
+
+.Breadcrumb ul,
+.Breadcrumb li {
+	display: inline;
+}
+
+.Breadcrumb ul li:before {
+	@include icon($fa-var-angle-right);
+	margin: 0 10px;
+}
+
+.BreadcrumbStart {
+	display: none;
+}
+
+.BreadcrumbSeparator {
+	display: none;
+}
+
+//------------------------------------------------------------------------------
+// Path
+//------------------------------------------------------------------------------
+
+.Path {
+	background: #F5F5F5;
+	padding: 1rem 0;
+	.Container {
+		display: flex;
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+.Path .Breadcrumb {
+	margin-bottom: 0;
+	a:not(:last-child) {
+		color: #666666;
+	}
+}

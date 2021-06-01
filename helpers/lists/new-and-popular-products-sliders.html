@@ -1,0 +1,35 @@
+<div class="ContainerSection">
+	{NewProducts(
+		limit: '18',
+		filters: 'has_images',
+		timelimit: '-10 year',
+		type: 'normal',
+		classes: 'ListProduct-Compact',
+		before: '
+			<div class="ContentSection">
+				<h2 class="ContentTitle">{%NewProducts}</h2>
+				<div class="List ProductList">
+					<div class="GridList GridListItemSmall" data-slider="grid-list">',
+		after: '
+					</div>
+				</div>
+			</div>',
+		helper: 'helpers/list-product'
+	)}
+	{TopSellers(
+		limit: '18',
+		filters: 'available',
+		type: 'normal',
+		classes: 'ListProduct-Compact',
+		before: '
+			<div class="ContentSection">
+				<h2 class="ContentTitle">{%BestsellingProducts}</h2>
+				<div class="List ProductList">
+					<div class="GridList GridListItemSmall" data-slider="grid-list">',
+		after: '
+					</div>
+				</div>
+			</div>',
+		helper: 'helpers/list-product'
+	)}
+</div>

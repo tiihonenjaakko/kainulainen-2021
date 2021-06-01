@@ -1,0 +1,17 @@
+{
+  "ftp": {
+    "host": "ftp.mycashflow.fi",
+    "port": 21,
+    "user": "36983@mycashflow.fi",
+    "pass": "TnZqHlk"
+  },
+  "sync": {
+    "url": "https://kainulainen.mycashflow.fi",
+    "path": "kainulainen-2021",
+    "ignore": []
+  },
+  "sass": {
+    "source": "styles/scss",
+    "dest": "styles"
+  }
+}

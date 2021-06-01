@@ -1,0 +1,188 @@
+//------------------------------------------------------------------------------
+// Brand
+//------------------------------------------------------------------------------
+
+.BrandLogo {
+	max-width: 80px;
+}
+
+//------------------------------------------------------------------------------
+// Brand Banner
+//------------------------------------------------------------------------------
+
+.FrontpageBrandBanner {
+	margin-top: 2rem;
+}
+
+.FooterBrandBanner {
+	background-color: transparent;
+	margin: 40px 0;
+}
+
+//------------------------------------------------------------------------------
+// Brand List Simple
+//------------------------------------------------------------------------------
+
+.SimpleBrandList {
+	display: block;
+	font-size: var(--font-size-large);
+	margin: -.5rem;
+}
+
+.SimpleBrandList .BrandListItem {
+	background-color: var(--color-base-1);
+	border: 1px solid var(--border-color);
+	border-radius: var(--border-radius);
+	display: inline-block;
+	margin: .5rem;
+	padding: .5rem 1rem;
+}
+
+.SimpleBrandList .BrandListItem a {
+	display: inline-block;
+	text-decoration: none;
+}
+
+//------------------------------------------------------------------------------
+// Brand Logo List
+//------------------------------------------------------------------------------
+
+.BrandList {
+	margin: -1rem;
+}
+
+.BrandList {
+	@include align-items(stretch);
+	@include flexbox;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+.Brand {
+	@include align-items(center);
+	@include flexbox;
+	@include flex(0 0 calc(16.66% - 2rem));
+	background-color: var(--color-base-1);
+	border: 1px solid var(--border-color);
+	border-radius: var(--border-radius);
+	justify-content: center;
+	margin: 1rem;
+	overflow: hidden;
+	padding: .5rem;
+	transition-duration: var(--transition-fast);
+}
+
+.Brand:hover {
+	transform: translateY(-5px);
+}
+
+.Brand a {
+	display: block;
+	text-decoration: none;
+}
+
+.Brand img {
+	max-width: 100%;
+}
+
+.BrandLogoPlaceholder a {
+	@include align-items(center);
+	@include flexbox;
+	@extend %subtle-headings;
+	font-size: var(--font-size-small);
+	justify-content: center;
+	min-height: 80px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	white-space: nowrap;
+}
+
+@media (max-width: $breakpoint-desktop) {
+	.Brand {
+		@include flex(0 0 calc(25% - 2rem));
+	}
+}
+
+@media (max-width: $breakpoint-tablet) {
+	.BrandBannerScrollable {
+		position: relative;
+
+		.Container {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	.BrandBannerScrollable:after {
+		@include cover;
+		background: linear-gradient(to right, rgba(255,255,255, 0), rgba(255,255,255, 1));
+		content: '';
+		height: 100%;
+		left: auto;
+		pointer-events: none;
+		width: 40px;
+		z-index: 1;
+	}
+
+	.BrandBannerScrollable .BrandList {
+		@include hscrollable;
+		@include flex-wrap(nowrap !important);
+		justify-content: flex-start;
+		position: relative;
+	}
+
+	.Brand {
+		@include flex(0 0 140px);
+	}
+}
+
+//------------------------------------------------------------------------------
+// Brands List Category
+//------------------------------------------------------------------------------
+
+.BrandsList ul {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	max-height: 100vh;
+}
+
+.BrandsList li {
+	flex: 1;
+}
+
+.BrandsList a {
+	text-decoration: none;
+}
+
+.BrandsList li:before {
+	@extend h1;
+	color: var(--color-accent-1);
+}
+
+$alphabets: A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,Å,Ä,Ö;
+
+@each $alphabet in $alphabets {
+	.BrandsList [title^="#{$alphabet}"] {
+		&:before {
+			display: block;
+			content: '#{$alphabet}';
+			margin-bottom: 20px;
+			margin-top: 20px !important;
+		}
+
+		& + [title^="#{$alphabet}"]:before {
+			display: none;
+			margin-top: 0 !important;
+		}
+	}
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+	.BrandsList ul {
+		display: block;
+		max-height: none;
+	}
+}

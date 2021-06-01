@@ -1,0 +1,135 @@
+//------------------------------------------------------------------------------
+// Search Filters
+//------------------------------------------------------------------------------
+
+.SearchFilter {
+	@extend %default-margin;
+	border: 1px solid var(--border-color);
+	border-radius: var(--border-radius);
+}
+
+.SearchFilter a {
+	float: right;
+}
+
+.SearchFilter li,
+.SearchFilterTitle {
+	@include truncate;
+	background-color: var(--color-boxed-bg);
+	border: 1px solid var(--border-color);
+	border-width: 1px 0 0;
+	display: block;
+	margin: 0;
+	padding: 1rem 1.5rem;
+	position: relative;
+}
+
+.SearchFilterTitle {
+	@extend h5;
+	border-width: 0;
+}
+
+.SearchFilter ul {
+	list-style: none;
+	margin-bottom: 0;
+}
+
+.SearchFilter .ApplyFilter {
+	float: left;
+	margin-right: 5px;
+}
+
+//------------------------------------------------------------------------------
+// Full Search Suggestions
+//------------------------------------------------------------------------------
+
+.FullSearchSuggestions {
+	display: inline-block;
+	list-style: none;
+	vertical-align: middle;
+	margin: -3px;
+}
+
+.FullSearchSuggestions li {
+	display: inline-block;
+	margin: 3px;
+	vertical-align: middle;
+}
+
+.FullSearchSuggestions a {
+	background-color: var(--color-accent-2);
+	border-radius: var(--border-radius);
+	display: block;
+	padding: 0 10px;
+}
+
+.FullSearchSuggestions a:hover,
+.FullSearchSuggestions .Active a {
+	background-color: var(--color-base-2);
+}
+
+.FullSearchSuggestionsTitle {
+	display: inline-block;
+	margin: 0 1.5rem 0 0;
+	vertical-align: middle;
+}
+
+//------------------------------------------------------------------------------
+// Search Form
+//------------------------------------------------------------------------------
+
+#SearchForm {
+	max-width: 500px;
+	position: relative;
+}
+
+#SearchForm label {
+	display: none;
+}
+
+#SearchForm .FormItem {
+	@extend .InputGroup;
+}
+
+//------------------------------------------------------------------------------
+// Header Search Form
+//------------------------------------------------------------------------------
+
+#LiveSearch #SearchForm {
+	margin-bottom: 0;
+	max-width: none;
+}
+
+#LiveSearch #SearchForm #SearchInput {
+	@extend .Button-Big;
+	background-color: var(--color-base-1);
+	border-radius: var(--border-radius);
+	padding-left: 2rem;
+	padding-right: 8rem;
+	width: 100%;
+}
+
+#LiveSearch #SearchForm #SearchButton {
+	@include icon-replace($fa-var-search);
+	background: transparent;
+	border-color: transparent;
+	position: absolute;
+	right: 0;
+}
+
+#LiveSearch {
+	margin: 0 2rem;
+	min-width: 280px;
+}
+
+//------------------------------------------------------------------------------
+// Mobile Search Form
+//------------------------------------------------------------------------------
+
+#MobileSearchForm {
+	margin-bottom: 0;
+}
+
+#MobileSearchForm label {
+	display: none;
+}
