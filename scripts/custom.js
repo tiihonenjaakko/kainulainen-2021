@@ -493,4 +493,30 @@ $(document).ready(function () {
 		});
 	});
 
+	//--------------------------------------------------------------------------
+	// ContactForm Modal
+	//--------------------------------------------------------------------------
+
+	var modal = document.getElementById('ContactFormModal');
+	var btn = document.getElementById("AskInformationButton");
+	var span = document.getElementsByClassName("close")[0];
+
+	btn.onclick = function() {
+	    modal.style.display = "block";
+	}
+
+	span.onclick = function() {
+	    modal.style.display = "none";
+	}
+
+	window.onclick = function(event) {
+	    if (event.target == modal) {
+	        modal.style.display = "none";
+	    }
+	}
+
+	$("#ContactName").prop('required',true);
+	$("#ContactEmail").prop('required',true);
+	$("#ContactMessage").prop('required',true);
+
 });
