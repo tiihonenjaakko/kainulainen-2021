@@ -565,6 +565,32 @@
 	}
 }
 
+.FiftyFiftyBlocks {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	.FiftyFifty {
+		overflow: hidden;
+	}
+	.Contact {
+		width: 40%;
+	}
+	.MapBlock {
+		padding: 6rem;
+		width: 60%;
+	}
+}
+
+@media (max-width: $breakpoint-mobile-wide) {
+	.MapBlock {
+		padding: 2rem 0rem !important;
+	}
+}
+
 //------------------------------------------------------------------------------
 // ShortBanners
 //------------------------------------------------------------------------------
