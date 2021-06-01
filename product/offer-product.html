@@ -1,0 +1,209 @@
+{Helper(file: 'helpers/header')}
+{Helper(file: 'helpers/path')}
+<div class="SiteContent-ProductCard">
+	<div class="ContainerSection">
+		<div class="ProductCard {ProductClass}">
+			<div class="Flex Flex-Wrap FlexValign-Start Flex-NoMargin">
+				<div class="FlexItem FlexItem-Grow ProductMainColumn">
+					{ProductImage(before: '<div class="ProductPageImage">', after:'</div>')}
+					{ProductThumbnails}
+					{AvailabilityNotificationForm(
+						before:'
+						<div class="Hide-Tablet">
+							<div class="AvailabilityForm ContentSection">
+							<h3>{%AvailabilityNotificationIntroTitle}</h3>
+							<p>{%AvailabilityNotificationIntroText}</p>',
+							after: '
+							</div>
+						</div>'
+					)}
+				</div>
+				<div class="FlexItem ProductAsideColumn">
+					<div class="ContentSection">
+						<div class="TopProductCard">
+							<span class="NewBadge">Uutuus</span>
+						</div>
+						{ProductBrandName(
+							before: '<span class="ProductCardBrandName"><a href="{ProductBrandLink}">',
+							after: '</a></span>'
+						)}
+						<h1 class="ProductName ProductCardProductName">{PageTitle}</h1>
+						<!--<p class="ProductPrices ProductCardPrices">
+							{ProductComparePrice(
+								currencysymbol: 'true',
+								before: '
+									{ProductPrice(
+										currencysymbol: 'true',
+										before: '<span class="ProductDiscountPrice">',
+										after: '</span>'
+									)}
+									<span class="ProductComparePrice">',
+								after: '</span>',
+								or: '
+									{ProductPrice(
+										currencysymbol: 'true',
+										before: '<span class="ProductCurrentPrice">',
+										after: '</span>'
+									)}'
+							)}
+						</p>-->
+						{ProductQuantityDiscounts(
+							before: '
+								<div class="ProductQuantityDiscounts">
+									{Text(
+										code: 'QuantityDiscounts',
+										before: '<span class="label"> ',
+										after: '</span>'
+									)}',
+							after: '</div>'
+						)}
+						{SimilarProducts(
+							limit: '12',
+							type: 'normal',
+							helper: 'helpers/mini-list-product',
+							before: '
+								<div class="ContentSection">
+									<p class="label Text-UpperCase">{%ProductOptions}</p>
+									<div class="List ProductOptionsList">
+										{Products(
+											id: '{ProductId}',
+											classes: 'Current',
+											helper: 'helpers/mini-list-product'
+										)}',
+							after: '
+									</div>
+								</div>'
+						)}
+						{ProductAvailability}
+						<p id="AskInformationButton"><i class="fa fa-question-circle"></i> {%ContactUsForInformation}</p>
+						{Helper(
+							file: 'helpers/modals/contactform'
+						)}
+						<!--{ProductBuy(variations: 'radio')}-->
+						{Banners(
+							name: 'promisebanners',
+							before: '<div class="PromiseBanners">',
+							after: '</div>',
+							helper: '{{
+								<li>{BannerText}</li>
+							}}'
+						)}
+					</div>
+					{ProductFeatures(
+						before: '
+							<div class="ContentSection">
+								<div class="ProductFeatures">',
+						after: '
+								</div>
+							</div>'
+					)}
+					{ProductBundles(
+						before: '
+							<div class="ContentSection">
+								<label>{%ProductIncludesInBundles}</label>
+								<div class="BundleList">',
+						after: '
+								</div>
+							</div>',
+						helper: 'helpers/mini-list-bundle'
+					)}
+					<!--{ProductFullDesc(
+						before: '
+							<div class="ProductDescription ProductFullDesc">
+								<h3 class="Active">Tuotekuvaus</h3>',
+						after: '</div>'
+					)}-->
+					<div class="FullProductDescriptions">
+						{ProductFullDesc(
+							before: '
+								<div class="ProductDescription ProductFullDesc">
+									<h3 class="Active">Tuotekuvaus</h3>',
+							after: '
+								<h3>Toimitus ja palautus</h3>
+								{Banner(
+									name: 'product-{ProductID}',
+									helper: '{{
+										{BannerText}
+									}}',
+									or:
+										'{ProductShippingMethods(
+											limit: '4',
+											sort: 'price',
+											before:'
+												<div class="ContentSection">
+														<div class="ProductShippingMethods">',
+											after:'
+														<p class="ProductDetailsItem-Info ShippingInfo">{Text(code: 'ProductShippingInfo', or: '{%CheckoutChooseShippingMethodIntro}')}</p>
+													</div>
+												</div>'
+										)}'
+							)}
+							</div>'
+						)}
+					</div>
+				</div>
+			</div>
+			<div class="ContentSection">
+				<div class="Grid">
+					{AddOnProducts(
+						type: 'normal',
+						before: '
+							<div class="Col Col-6-12 Col-Mobile-Wide-12-12 Margin-Top">
+								<h2 class="ContentTitle">{Text(code: 'AddOnProducts', or: 'Tuotteen lisäosat')}</h2>
+								<div class="List ProductList">
+									<div class="MiniListProducts">',
+						after: '
+									</div>
+								</div>
+							</div>',
+						helper: 'helpers/mini-list-product'
+					)}
+					{SparePartProducts(
+						type: 'normal',
+						before: '
+							<div class="Col Col-6-12 Col-Mobile-Wide-12-12 Margin-Top">
+								<h2 class="ContentTitle">{Text(code: 'SparePartProducts', or: 'Tuotteen varaosat')}</h2>
+								<div class="List ProductList">
+									<div class="MiniListProducts">',
+						after: '
+									</div>
+								</div>
+							</div>',
+						helper: 'helpers/mini-list-product'
+					)}
+				</div>
+			</div>
+		</div>
+	</div>
+	{CompatibleProducts(
+		limit: '12',
+		type: 'normal',
+		helper: 'helpers/list-product',
+		classes: 'ListProduct-Compact',
+		before: '
+			<div class="ContainerSection">
+				<h2 class="ContentTitle">{%CompatibleProducts}</h2>
+				<div class="List ProductList">
+					<div class="GridList GridListItemSmall" data-slider="grid-list">',
+		after: '
+					</div>
+				</div>
+			</div>'
+	)}
+	{CrossSaleProducts(
+		limit: '12',
+		type: 'normal',
+		helper: 'helpers/list-product',
+		classes: 'ListProduct-Compact',
+		before: '
+			<div class="ContainerSection">
+				<h2 class="ContentTitle">{%CrossSalesForProduct}</h2>
+				<div class="List ProductList">
+					<div class="GridList GridListItemSmall" data-slider="grid-list">',
+		after: '
+					</div>
+				</div>
+			</div>'
+	)}
+</div>
+{Helper(file: 'helpers/footer')}
